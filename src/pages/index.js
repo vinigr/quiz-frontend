@@ -1,6 +1,7 @@
 import Home from "./Home";
-import Dashboard from "./Dashboard";
 import Login from "./Login";
 import Register from "./Register";
+import Player from "./Player";
+import Teacher from "./Teacher";
 
-export { Home, Login, Register, Dashboard };
+export { Home, Login, Register, Player, Teacher };
