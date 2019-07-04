@@ -1,11 +1,10 @@
 import React from "react";
-import { MdNotifications } from "react-icons/md";
-import { Header } from "./styles";
+import { Header, IconNotificacoes } from "./styles";
 
 export default function HeaderMenu() {
   return (
     <Header>
-      <MdNotifications size={28} />
+      <IconNotificacoes />
     </Header>
   );
 }
