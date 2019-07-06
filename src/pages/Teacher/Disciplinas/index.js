@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, ListaDisciplinas } from "./styles";
 import api from "../../../service/api";
 import DisciplinaItem from "../../../components/DisciplinaItem";
+import BotaoAdicionar from "../../../components/BotaoAdicionar";
 
 export default function Disciplinas() {
   const [subjects, setSubjects] = useState([]);
@@ -21,7 +22,12 @@ export default function Disciplinas() {
   }
 
   function renderDisciplinas() {
-    return <ListaDisciplinas>{subjects.map(DisciplinaItem)}</ListaDisciplinas>;
+    return (
+      <Container>
+        <ListaDisciplinas>{subjects.map(DisciplinaItem)}</ListaDisciplinas>
+        <BotaoAdicionar />
+      </Container>
+    );
   }
 
   return <div>{renderDisciplinas()}</div>;
