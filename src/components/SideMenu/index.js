@@ -12,32 +12,33 @@ import {
   Linha
 } from "./styles";
 import logo from "../../assets/img/logo-verde.png";
+import { withRouter } from "react-router-dom";
 
-export default function SideMenu(props) {
+function SideMenu(props) {
   return (
     <Menu>
       <AppLogo src={logo} />
       <List>
-        <LinkMenu exact={true} to="/teacher">
+        <LinkMenu exact={true} to={`${props.match.path}`}>
           <ItemList>
             <IconHome />
             Início
           </ItemList>
         </LinkMenu>
-        <LinkMenu to="/teacher/disciplinas">
+        <LinkMenu to={`${props.match.path}/disciplinas`}>
           <ItemList>
             <IconSubject />
             Disciplinas
           </ItemList>
         </LinkMenu>
-        <LinkMenu to="/teacher/questionarios">
+        <LinkMenu to={`${props.match.path}/questionarios`}>
           <ItemList>
             <IconQuestion />
             Questionários
           </ItemList>
         </LinkMenu>
         <Linha />
-        <LinkMenu>
+        <LinkMenu to={`${props.match.path}/configuracoes`}>
           <ItemList>
             <IconSettings />
             Configurações
@@ -47,3 +48,5 @@ export default function SideMenu(props) {
     </Menu>
   );
 }
+
+export default withRouter(SideMenu);
