@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Icon } from "./styles";
 
-const BotaoAdicionar = () => (
-  <Button>
+const BotaoAdicionar = props => (
+  <Button onClick={() => props.handleModal()}>
     <Icon />
   </Button>
 );
