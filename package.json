@@ -8,6 +8,7 @@
     "react-dom": "^16.8.6",
     "react-icons": "^3.7.0",
     "react-modal": "^3.8.2",
+    "react-responsive-modal": "^4.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "socket.io-client": "^2.2.0",
