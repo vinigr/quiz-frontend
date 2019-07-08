@@ -2,7 +2,11 @@ import React from "react";
 import {
   LinkDisciplina,
   DisciplinaLi,
+  Div,
   DivTop,
+  DivTitle,
+  DivDots,
+  DotsIcon,
   DivBottom,
   NomeDisciplina,
   Descricao,
@@ -12,15 +16,25 @@ import {
 const DisciplinaItem = subject => (
   <LinkDisciplina to={`/teacher/disciplina/${subject.id}`} key={subject.id}>
     <DisciplinaLi>
-      <DivTop>
-        <div>
-          <NomeDisciplina>{subject.name}</NomeDisciplina>
-          <Descricao>{subject.topic}</Descricao>
-        </div>
+      <Div>
+        <DivTop>
+          <DivTitle>
+            <NomeDisciplina>{subject.name}</NomeDisciplina>
+            <Descricao>{subject.topic}</Descricao>
+          </DivTitle>
+          <DivDots
+            onClick={e => {
+              e.preventDefault();
+              console.log();
+            }}
+          >
+            <DotsIcon />
+          </DivDots>
+        </DivTop>
         <DivBottom>
           <Codigo>Código: {subject.accessCode}</Codigo>
         </DivBottom>
-      </DivTop>
+      </Div>
     </DisciplinaLi>
   </LinkDisciplina>
 );

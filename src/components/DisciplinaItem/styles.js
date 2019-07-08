@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { DotsVerticalRounded } from "styled-icons/boxicons-regular/DotsVerticalRounded";
 
 export const Container = styled.div``;
 
@@ -45,7 +46,7 @@ function Luminosidade(hex) {
   return (r * 299 + g * 587 + b * 114) / 1000;
 }
 
-export const DivTop = styled.div`
+export const Div = styled.div`
   background-color: #${hex || "11B666"};
   height: calc(100% - 10px);
   width: calc(100% -20px);
@@ -57,6 +58,36 @@ export const DivTop = styled.div`
   flex-direction: column;
   justify-content: space-around;
   color: ${Luminosidade(hex) > 128 ? "#000" : "#fff"};
+`;
+
+export const DivTop = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+export const DivTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+`;
+
+export const DivDots = styled.div`
+  display: flex;
+  background-color: transparent;
+  border-radius: 10px;
+  color: ${Luminosidade(hex) > 128 ? "#000" : "#fff"};
+  height: 24px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const DotsIcon = styled(DotsVerticalRounded)`
+  height: 24px;
+  width: 24px;
 `;
 
 export const DivBottom = styled.div``;
