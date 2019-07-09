@@ -25,20 +25,20 @@ function SideMenu(props) {
             Início
           </ItemList>
         </LinkMenu>
-        <LinkMenu to={`${props.match.path}/disciplinas`}>
+        <LinkMenu to={`${props.match.path}/d`}>
           <ItemList>
             <IconSubject />
             Disciplinas
           </ItemList>
         </LinkMenu>
-        <LinkMenu to={`${props.match.path}/questionarios`}>
+        <LinkMenu to={`${props.match.path}/q`}>
           <ItemList>
             <IconQuestion />
             Questionários
           </ItemList>
         </LinkMenu>
         <Linha />
-        <LinkMenu to={`${props.match.path}/configuracoes`}>
+        <LinkMenu to={`${props.match.path}/c`}>
           <ItemList>
             <IconSettings />
             Configurações

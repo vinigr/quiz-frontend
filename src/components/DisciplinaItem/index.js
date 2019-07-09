@@ -14,7 +14,7 @@ import {
 } from "./styles";
 
 const DisciplinaItem = subject => (
-  <LinkDisciplina to={`/teacher/disciplina/${subject.id}`} key={subject.id}>
+  <LinkDisciplina to={`/t/d/${subject.id}/m`} key={subject.id}>
     <DisciplinaLi>
       <Div>
         <DivTop>
