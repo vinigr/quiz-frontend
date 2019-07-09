@@ -21,10 +21,10 @@ export default function HeaderMenu(props) {
       <IconMenu onClick={() => props.setSideMenu(!props.sideMenu)} />
       {(location[2] === "d") & !isNaN(location[3]) ? (
         <OpcoesDisciplina>
-          <OpcaoDisciplina to={`/t/d/${location[3]}/m`}>
+          <OpcaoDisciplina exact to={`/t/d/${location[3]}/`}>
             <NomeOpcao>Mural</NomeOpcao>
           </OpcaoDisciplina>
-          <OpcaoDisciplina to={`/t/d/${location[3]}/p`}>
+          <OpcaoDisciplina exact to={`/t/d/${location[3]}/p`}>
             <NomeOpcao>Pessoas</NomeOpcao>
           </OpcaoDisciplina>
         </OpcoesDisciplina>

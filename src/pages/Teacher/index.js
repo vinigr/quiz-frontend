@@ -23,11 +23,7 @@ export default function Teacher(props) {
               path={`${props.match.path}/d`}
               component={Disciplinas}
             />
-            <Route
-              exact
-              path={`${props.match.path}/d/:id`}
-              component={Disciplina}
-            />
+            <Route path={`${props.match.path}/d/:id`} component={Disciplina} />
           </Switch>
         </Main>
       </Content>
