@@ -21,6 +21,7 @@ export default function Disciplinas() {
 
   useEffect(() => {
     buscaBanco();
+    document.title = "Disciplinas";
   }, []);
 
   async function buscaBanco() {
