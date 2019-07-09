@@ -8,12 +8,12 @@ import Disciplina from "./Disciplina";
 import { Switch, Route } from "react-router-dom";
 
 export default function Teacher(props) {
-  const [sideMenu, setSideMenu] = useState(true);
+  const [sideMenu, setSideMenu] = useState(false);
 
   return (
     <Container>
       <SideMenu sideMenu={sideMenu} setSideMenu={setSideMenu} />
-      <Content>
+      <Content sideMenu={sideMenu}>
         <HeaderMenu {...props} sideMenu={sideMenu} setSideMenu={setSideMenu} />
         <Main>
           <Switch>

@@ -1,7 +1,9 @@
 import React from "react";
 import {
   Menu,
+  DivLogo,
   AppLogo,
+  NomeSite,
   List,
   ItemList,
   LinkMenu,
@@ -16,32 +18,35 @@ import { withRouter } from "react-router-dom";
 
 function SideMenu(props) {
   return (
-    <Menu>
-      <AppLogo src={logo} />
+    <Menu sideMenu={props.sideMenu}>
+      <DivLogo>
+        <AppLogo src={logo} />
+        {props.sideMenu && <NomeSite>Quest On</NomeSite>}
+      </DivLogo>
       <List>
         <LinkMenu exact={true} to={`${props.match.path}`}>
           <ItemList>
             <IconHome />
-            Início
+            {props.sideMenu && "Início"}
           </ItemList>
         </LinkMenu>
         <LinkMenu to={`${props.match.path}/d`}>
           <ItemList>
             <IconSubject />
-            Disciplinas
+            {props.sideMenu && "Disciplinas"}
           </ItemList>
         </LinkMenu>
         <LinkMenu to={`${props.match.path}/q`}>
           <ItemList>
             <IconQuestion />
-            Questionários
+            {props.sideMenu && "Questionários"}
           </ItemList>
         </LinkMenu>
         <Linha />
         <LinkMenu to={`${props.match.path}/c`}>
           <ItemList>
             <IconSettings />
-            Configurações
+            {props.sideMenu && "Configurações"}
           </ItemList>
         </LinkMenu>
       </List>

@@ -9,13 +9,28 @@ export const Menu = styled.nav`
   background-color: #fff;
   display: flex;
   height: 100vh;
-  width: 24%;
+  width: ${props => (props.sideMenu ? "24%" : "6%")};
   flex-direction: column;
+`;
+
+export const DivLogo = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  justify-content: flex-start;
+  width: 100%;
+  border-bottom: solid 0.05em #e8e8e8;
 `;
 
 export const AppLogo = styled.img`
   height: 50px;
   width: 50px;
+`;
+
+export const NomeSite = styled.h1`
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  margin: 0;
 `;
 
 export const List = styled.ul`
@@ -85,7 +100,7 @@ export const IconSettings = styled(Settings)`
 export const Linha = styled.hr`
   border-width: 0;
   height: 0.5px;
-  border-top-width: 1px;
+  border-top-width: 0.03em;
   color: #b2babb;
   width: 100%;
 `;

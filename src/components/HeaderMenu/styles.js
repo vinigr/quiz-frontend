@@ -10,6 +10,7 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: solid 0.05em #e8e8e8;
 `;
 
 const Icon = `
