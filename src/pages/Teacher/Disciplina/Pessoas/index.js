@@ -24,7 +24,11 @@ export default function Pessoas(props) {
   return (
     <Container>
       <Title>Membros da disciplina</Title>
-      <ListPessoas>{pessoas.map(PlayerItem)}</ListPessoas>
+      {pessoas.length !== 0 ? (
+        <ListPessoas>{pessoas.map(PlayerItem)}</ListPessoas>
+      ) : (
+        <div>Sem usuários</div>
+      )}
     </Container>
   );
 }
