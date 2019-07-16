@@ -46,15 +46,16 @@ export const Conteudo = styled.main`
 `;
 
 export const SectionForm = styled.section`
-  width: 60vw;
+  width: 65vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px;
+  justify-content: center;
 `;
 
 export const Title = styled.h2`
-  font-size: 30px;
+  font-size: 40px;
   color: #059451;
 `;
 
@@ -120,6 +121,14 @@ export const Input = styled.input`
   margin-bottom: 14px;
 `;
 
+export const TextError = styled.h4`
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  color: #d41919;
+  margin: 0;
+`;
+
 export const LinkRecuperacao = styled(Link)`
   font-size: 16px;
   font-weight: 600px;
@@ -139,12 +148,16 @@ export const BotaoEntrar = styled.button`
   font-size: 24px;
   font-family: "Rubik", sans-serif;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export const DivInfo = styled.div`
   background-color: #059451;
   height: calc(100vh - ${Header});
-  width: 40vw;
+  width: 35vw;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -167,11 +180,16 @@ export const TextInfo = styled.h3`
 
 export const LinkCadastro = styled(Link)`
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   border-radius: 30px;
   padding: 18px;
   color: #fff;
-  border: solid 1px #fff;
+  border: solid 0.05em #fff;
   text-decoration: none;
   text-transform: uppercase;
+
+  &:hover {
+    color: #059451;
+    background-color: #fff;
+  }
 `;
