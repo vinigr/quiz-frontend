@@ -28,7 +28,7 @@ import logo from "../../assets/img/logo-verde.png";
 import api from "../../service/api";
 import AuthService from "../../service/auth";
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -51,9 +51,9 @@ export default function Login() {
       });
 
       await AuthService.setToken(token.data.token);
+      props.history.go();
     } catch (err) {
-      await setError(err.response.data.message);
-      return;
+      return setError(err.response.data.message);
     }
   }
 
