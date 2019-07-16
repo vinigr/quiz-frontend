@@ -27,8 +27,9 @@ const AuthService = {
     return localStorage.getItem(TOKEN_KEY);
   },
 
-  logout() {
+  logout(props) {
     localStorage.removeItem(TOKEN_KEY);
+    props.history.push("/");
   },
 
   getProfile() {
