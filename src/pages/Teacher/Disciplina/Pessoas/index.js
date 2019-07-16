@@ -8,13 +8,8 @@ export default function Pessoas(props) {
 
   useEffect(() => {
     const buscaBanco = async () => {
-      const token = await localStorage.getItem("x-access-token");
       const { id } = props.match.params;
-      const users = await api.get(`/subject/${id}/users`, {
-        headers: {
-          "x-access-token": token
-        }
-      });
+      const users = await api.get(`/subject/${id}/users`);
       await setPessoas(users.data.usersSubject);
     };
 
