@@ -5,8 +5,11 @@ import {
   OpcoesDisciplina,
   OpcaoDisciplina,
   NomeOpcao,
-  IconNotificacoes
+  IconNotificacoes,
+  IconExit,
+  IconsFinal
 } from "./styles";
+import AuthService from "../../service/auth";
 
 export default function HeaderMenu(props) {
   const [location, setLocation] = useState([]);
@@ -31,8 +34,10 @@ export default function HeaderMenu(props) {
       ) : (
         <></>
       )}
-
-      <IconNotificacoes />
+      <IconsFinal>
+        <IconNotificacoes />
+        <IconExit onClick={() => AuthService.logout(props)} />
+      </IconsFinal>
     </Header>
   );
 }

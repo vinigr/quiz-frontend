@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { NotificationsNone } from "styled-icons/material/NotificationsNone";
 import { Menu } from "styled-icons/material/Menu";
+import { ExitToApp } from "styled-icons/material/ExitToApp";
 
 export const Header = styled.header`
   height: 60px;
@@ -24,6 +25,7 @@ const Icon = `
 export const IconNotificacoes = styled(NotificationsNone)`
   color: #000;
   height: 30px;
+  margin-right: 10px;
 
   ${Icon};
 `;
@@ -63,4 +65,17 @@ export const IconMenu = styled(Menu)`
   height: 30px;
 
   ${Icon};
+`;
+
+export const IconExit = styled(ExitToApp)`
+  color: #000;
+  height: 30px;
+
+  ${Icon};
+`;
+
+export const IconsFinal = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
 `;
