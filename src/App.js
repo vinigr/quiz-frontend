@@ -6,7 +6,6 @@ import AuthService from "./service/auth";
 const PlayerRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    x
     render={props =>
       AuthService.loggedIn() && AuthService.getRole() === 1 ? (
         <Component {...props} />
@@ -20,7 +19,6 @@ const PlayerRoute = ({ component: Component, ...rest }) => (
 const TeacherRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    x
     render={props =>
       AuthService.loggedIn() && AuthService.getRole() === 2 ? (
         <Component {...props} />
@@ -31,12 +29,38 @@ const TeacherRoute = ({ component: Component, ...rest }) => (
   />
 );
 
+const AccessRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props => {
+      if (!AuthService.loggedIn()) {
+        return <Component {...props} />;
+      } else if (AuthService.getRole() === 1) {
+        return (
+          <Redirect to={{ pathname: "/p", state: { from: props.location } }} />
+        );
+      } else if (AuthService.getRole() === 2) {
+        return (
+          <Redirect to={{ pathname: "/t", state: { from: props.location } }} />
+        );
+      } else {
+        return (
+          <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+        );
+      }
+    }}
+  />
+);
+
 const App = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
+      <AccessRoute path="/login" component={props => <Login {...props} />} />
+      <AccessRoute
+        path="/register"
+        component={props => <Register {...props} />}
+      />
       <PlayerRoute path="/p" component={props => <Player {...props} />} />
       <TeacherRoute path="/t" component={props => <Teacher {...props} />} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
