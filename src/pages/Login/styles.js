@@ -189,7 +189,7 @@ export const TextError = styled.h4`
   font-size: 14px;
   text-align: center;
   color: #d41919;
-  margin: 0;
+  margin-top: 10px;
 `;
 
 export const LinkRecuperacao = styled(Link)`
