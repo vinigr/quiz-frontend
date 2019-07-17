@@ -1,6 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { Home, Login, Register, Player, Teacher } from "./pages";
+import {
+  Home,
+  Login,
+  Register,
+  Player,
+  Teacher,
+  ForgotPassword
+} from "./pages";
 import AuthService from "./service/auth";
 
 const PlayerRoute = ({ component: Component, ...rest }) => (
@@ -60,6 +67,10 @@ const App = () => (
       <AccessRoute
         path="/register"
         component={props => <Register {...props} />}
+      />
+      <AccessRoute
+        path="/forgot-password"
+        component={props => <ForgotPassword {...props} />}
       />
       <PlayerRoute path="/p" component={props => <Player {...props} />} />
       <TeacherRoute path="/t" component={props => <Teacher {...props} />} />
