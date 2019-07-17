@@ -6,7 +6,8 @@ import {
   Register,
   Player,
   Teacher,
-  ForgotPassword
+  ForgotPassword,
+  ResetPassword
 } from "./pages";
 import AuthService from "./service/auth";
 
@@ -71,6 +72,10 @@ const App = () => (
       <AccessRoute
         path="/forgot-password"
         component={props => <ForgotPassword {...props} />}
+      />
+      <AccessRoute
+        path="/reset-password/:token"
+        component={props => <ResetPassword {...props} />}
       />
       <PlayerRoute path="/p" component={props => <Player {...props} />} />
       <TeacherRoute path="/t" component={props => <Teacher {...props} />} />
