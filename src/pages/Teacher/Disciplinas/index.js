@@ -25,12 +25,7 @@ export default function Disciplinas() {
   }, []);
 
   async function buscaBanco() {
-    const token = await localStorage.getItem("x-access-token");
-    const subject = await api.get("/teacher/subjects", {
-      headers: {
-        "x-access-token": token
-      }
-    });
+    const subject = await api.get("/teacher/subjects");
     await setSubjects(subject.data.subjects);
   }
 
