@@ -15,6 +15,12 @@ import {
   IconGoogle,
   TextForm,
   Form,
+  DivEmail,
+  DivPassword,
+  IconMail,
+  IconPassword,
+  IconEye,
+  IconEyeClosed,
   Input,
   TextError,
   LinkRecuperacao,
@@ -31,6 +37,7 @@ import AuthService from "../../service/auth";
 export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [secureText, setSecureText] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -78,19 +85,30 @@ export default function Login(props) {
           </DivIcons>
           <TextForm>ou use sua conta de email</TextForm>
           <Form>
-            <Input
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              placeholder="Email"
-              required
-            />
-            <Input
-              type="password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              placeholder="Password"
-            />
+            <DivEmail>
+              <IconMail />
+              <Input
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="Email"
+                required
+              />
+            </DivEmail>
+            <DivPassword>
+              <IconPassword />
+              <Input
+                type={secureText ? "password" : "text"}
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Password"
+              />
+              {secureText ? (
+                <IconEyeClosed onClick={() => setSecureText(false)} />
+              ) : (
+                <IconEye onClick={() => setSecureText(true)} s />
+              )}
+            </DivPassword>
             {error && <TextError>{error}</TextError>}
             <LinkRecuperacao to="forgot-password">
               Esqueceu sua senha?

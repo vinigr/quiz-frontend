@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { FacebookF } from "styled-icons/fa-brands/FacebookF";
 import { Google } from "styled-icons/fa-brands/Google";
+import { Email } from "styled-icons/material/Email";
+import { Lock } from "styled-icons/material/Lock";
+import { Eye } from "styled-icons/octicons/Eye";
+import { EyeClosed } from "styled-icons/octicons/EyeClosed";
+
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
@@ -111,14 +116,72 @@ export const Form = styled.form`
   align-items: center;
 `;
 
+const DivInput = `
+  display: flex;
+  background-color: #f1f1f1;
+  width: 80%;
+  border-radius: 5px;
+  height: 40px;
+  margin-bottom: 14px;
+  align-items: center;
+  padding: 4px 6px;
+`;
+
 export const Input = styled.input`
   background-color: #f1f1f1;
   border: none;
-  border-radius: 5px;
-  height: 40px;
   padding: 4px 6px;
-  width: 80%;
-  margin-bottom: 14px;
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const DivEmail = styled.div`
+  ${DivInput};
+
+  &:focus-within {
+    border: 1px solid #151515;
+  }
+`;
+
+export const DivPassword = styled.div`
+  ${DivInput};
+
+  &:focus-within {
+    border: 1px solid #151515;
+  }
+`;
+
+const IconInput = `
+  height: 30px;
+  color: #4A4A4A;
+  margin-left: 5px;
+`;
+
+export const IconMail = styled(Email)`
+  ${IconInput};
+`;
+
+export const IconPassword = styled(Lock)`
+  ${IconInput};
+`;
+
+const EyeStyle = `
+  height: 20px;
+  color: #4A4A4A;
+  margin-right: 10px;
+`;
+
+export const IconEye = styled(Eye)`
+  ${EyeStyle};
+`;
+
+export const IconEyeClosed = styled(EyeClosed)`
+  ${EyeStyle};
 `;
 
 export const TextError = styled.h4`
