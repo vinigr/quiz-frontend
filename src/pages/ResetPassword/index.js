@@ -70,7 +70,7 @@ export default function ResetPassword(props) {
     if (password !== confirmPassword)
       return setError("As senhas não são iguais!");
 
-    if (idUser) {
+    if (!idUser) {
       return setError("Não é possível alterar a senha!");
     }
 
@@ -81,6 +81,9 @@ export default function ResetPassword(props) {
       });
 
       setSuccess(msg.data.message);
+      setTimeout(() => {
+        props.history.push("/login");
+      }, 2000);
     } catch (err) {
       return setError(err.response.data.message);
     }
