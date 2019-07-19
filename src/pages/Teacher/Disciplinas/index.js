@@ -11,6 +11,7 @@ import {
 import api from "../../../service/api";
 import DisciplinaItem from "../../../components/DisciplinaItem";
 import BotaoAdicionar from "../../../components/BotaoAdicionar";
+import MenuDisciplina from "../../../components/MenuDisciplina";
 import Modal from "react-responsive-modal";
 
 export default function Disciplinas() {
@@ -18,6 +19,7 @@ export default function Disciplinas() {
   const [openModal, setOpenModal] = useState(false);
   const [name, setName] = useState("");
   const [topic, setTopic] = useState("");
+  const [anchorEl, setAnchorEl] = useState(null);
 
   useEffect(() => {
     buscaBanco();
@@ -32,7 +34,15 @@ export default function Disciplinas() {
   function renderDisciplinas() {
     return (
       <Container>
-        <ListaDisciplinas>{subjects.map(DisciplinaItem)}</ListaDisciplinas>
+        <ListaDisciplinas>
+          {subjects.map(subject => (
+            <DisciplinaItem
+              key={subject.id}
+              subject={subject}
+              handleClick={handleClick}
+            />
+          ))}
+        </ListaDisciplinas>
       </Container>
     );
   }
@@ -66,6 +76,14 @@ export default function Disciplinas() {
     }
   }
 
+  function handleClick(e) {
+    setAnchorEl(e.currentTarget);
+  }
+
+  function handleClose() {
+    setAnchorEl(null);
+  }
+
   return (
     <div>
       {renderDisciplinas()}
@@ -93,6 +111,7 @@ export default function Disciplinas() {
           <Button onClick={e => cadastrarDisciplina(e)}>Cadastrar</Button>
         </Form>
       </Modal>
+      <MenuDisciplina handleClose={handleClose} anchorEl={anchorEl} />
     </div>
   );
 }
