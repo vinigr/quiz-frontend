@@ -18,7 +18,9 @@ const PlayerRoute = ({ component: Component, ...rest }) => (
       AuthService.loggedIn() && AuthService.getRole() === 1 ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+        <Redirect
+          to={{ pathname: "/login", state: { from: props.location } }}
+        />
       )
     }
   />
@@ -31,7 +33,9 @@ const TeacherRoute = ({ component: Component, ...rest }) => (
       AuthService.loggedIn() && AuthService.getRole() === 2 ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+        <Redirect
+          to={{ pathname: "/login", state: { from: props.location } }}
+        />
       )
     }
   />
