@@ -15,7 +15,9 @@ export const Header = styled.header`
 `;
 
 const Icon = `
-  cursor: pointer;
+  cursor: pointer;.
+  color: #555555;
+  height: 30px;
 
   &:hover {
     color: #118d19;
@@ -23,8 +25,6 @@ const Icon = `
 `;
 
 export const IconNotificacoes = styled(NotificationsNone)`
-  color: #000;
-  height: 30px;
   margin-right: 10px;
 
   ${Icon};
@@ -61,16 +61,10 @@ export const NomeOpcao = styled.h2`
 `;
 
 export const IconMenu = styled(Menu)`
-  color: #000;
-  height: 30px;
-
   ${Icon};
 `;
 
 export const IconExit = styled(ExitToApp)`
-  color: #000;
-  height: 30px;
-
   ${Icon};
 `;
 
