@@ -19,4 +19,5 @@ export const Nome = styled.h3`
 export const DotsIcon = styled(DotsVerticalRounded)`
   height: 24px;
   width: 24px;
+  cursor: pointer;
 `;
