@@ -2,8 +2,7 @@ import React from "react";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
-const MenuDisciplina = props => {
-  const { handleClose, anchorEl } = props;
+const MenuDisciplina = ({ handleClose, anchorEl }) => {
   return (
     <Menu
       id="simple-menu"
@@ -12,9 +11,8 @@ const MenuDisciplina = props => {
       open={Boolean(anchorEl)}
       onClose={handleClose}
     >
-      <MenuItem onClick={handleClose}>Profile</MenuItem>
-      <MenuItem onClick={handleClose}>My account</MenuItem>
-      <MenuItem onClick={handleClose}>Logout</MenuItem>
+      <MenuItem onClick={handleClose}>Editar</MenuItem>
+      <MenuItem onClick={handleClose}>Excluir</MenuItem>
     </Menu>
   );
 };
