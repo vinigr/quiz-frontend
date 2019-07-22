@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { NotificationsNone } from "styled-icons/material/NotificationsNone";
+import { Notifications } from "styled-icons/material/Notifications";
 import { Menu } from "styled-icons/material/Menu";
 import { ExitToApp } from "styled-icons/material/ExitToApp";
+import Badge from "@material-ui/core/Badge";
 
 export const Header = styled.header`
   height: 60px;
@@ -24,9 +25,7 @@ const Icon = `
   }
 `;
 
-export const IconNotificacoes = styled(NotificationsNone)`
-  margin-right: 10px;
-
+export const IconNotificacoes = styled(Notifications)`
   ${Icon};
 `;
 
@@ -72,4 +71,8 @@ export const IconsFinal = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+`;
+
+export const BadgeIcon = styled(Badge)`
+  margin-right: 10px;
 `;

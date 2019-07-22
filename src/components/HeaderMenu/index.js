@@ -7,12 +7,14 @@ import {
   NomeOpcao,
   IconNotificacoes,
   IconExit,
-  IconsFinal
+  IconsFinal,
+  BadgeIcon
 } from "./styles";
 import AuthService from "../../service/auth";
 
 export default function HeaderMenu(props) {
   const [location, setLocation] = useState([]);
+  const [invisible, setInvisible] = useState(false);
 
   useEffect(() => {
     const { pathname } = props.location;
@@ -35,7 +37,9 @@ export default function HeaderMenu(props) {
         <></>
       )}
       <IconsFinal>
-        <IconNotificacoes />
+        <BadgeIcon color="primary" variant="dot" invisible={invisible}>
+          <IconNotificacoes />
+        </BadgeIcon>
         <IconExit onClick={() => AuthService.logout(props)} />
       </IconsFinal>
     </Header>
