@@ -55,20 +55,10 @@ export default function Disciplinas() {
     e.preventDefault();
 
     try {
-      const token = await localStorage.getItem("x-access-token");
-
-      const disciplina = await api.post(
-        "/subject/create",
-        {
-          name,
-          topic
-        },
-        {
-          headers: {
-            "x-access-token": token
-          }
-        }
-      );
+      const disciplina = await api.post("/subject/create", {
+        name,
+        topic
+      });
       await setOpenModal(false);
       setSubjects([disciplina.data.subject, ...subjects]);
     } catch (err) {
