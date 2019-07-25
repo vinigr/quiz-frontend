@@ -10,6 +10,7 @@ import {
   IconHome,
   IconSubject,
   IconQuestion,
+  IconQuiz,
   IconSettings,
   Linha
 } from "./styles";
@@ -36,9 +37,15 @@ function SideMenu(props) {
             {props.sideMenu && "Disciplinas"}
           </ItemList>
         </LinkMenu>
-        <LinkMenu to={`${props.match.path}/q`}>
+        <LinkMenu to={`${props.match.path}/qt`}>
           <ItemList>
             <IconQuestion />
+            {props.sideMenu && "Questões"}
+          </ItemList>
+        </LinkMenu>
+        <LinkMenu to={`${props.match.path}/q`}>
+          <ItemList>
+            <IconQuiz />
             {props.sideMenu && "Questionários"}
           </ItemList>
         </LinkMenu>

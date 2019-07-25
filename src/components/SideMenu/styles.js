@@ -4,12 +4,13 @@ import { Home } from "styled-icons/typicons/Home";
 import { Subject } from "styled-icons/material/Subject";
 import { QuestionAnswer } from "styled-icons/material/QuestionAnswer";
 import { Settings } from "styled-icons/material/Settings";
+import { QuestionCircle } from "styled-icons/fa-solid/QuestionCircle";
 
 export const Menu = styled.nav`
   background-color: #fff;
   display: flex;
   height: 100vh;
-  width: ${props => (props.sideMenu ? "24%" : "6%")};
+  width: ${props => (props.sideMenu ? "16%" : "6%")};
   flex-direction: column;
 `;
 
@@ -89,7 +90,11 @@ export const IconSubject = styled(Subject)`
   ${colorIcon};
 `;
 
-export const IconQuestion = styled(QuestionAnswer)`
+export const IconQuiz = styled(QuestionAnswer)`
+  ${colorIcon};
+`;
+
+export const IconQuestion = styled(QuestionCircle)`
   ${colorIcon};
 `;
 
