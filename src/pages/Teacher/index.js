@@ -5,6 +5,7 @@ import SideMenu from "../../components/SideMenu";
 import Home from "./Home";
 import Disciplinas from "./Disciplinas";
 import Disciplina from "./Disciplina";
+import Questoes from "./Questoes";
 import { Switch, Route } from "react-router-dom";
 
 export default function Teacher(props) {
@@ -24,6 +25,11 @@ export default function Teacher(props) {
               component={Disciplinas}
             />
             <Route path={`${props.match.path}/d/:id`} component={Disciplina} />
+            <Route path={`${props.match.path}/qt`} component={Questoes} />
+            <Route
+              path={`${props.match.path}/q`}
+              component={() => <h2>Questionários</h2>}
+            />
           </Switch>
         </Main>
       </Content>

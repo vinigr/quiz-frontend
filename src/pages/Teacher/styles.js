@@ -13,5 +13,5 @@ export const Main = styled.main`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${props => (props.sideMenu ? "76%" : "94%")};
+  width: ${props => (props.sideMenu ? "84%" : "94%")};
 `;
