@@ -28,7 +28,14 @@ import {
   TextInfo,
   LinkCadastro
 } from "../Login/styles";
-import { IconPerson, BotaoCadastrar } from "./styles";
+import {
+  IconPerson,
+  BotaoCadastrar,
+  TypeUser,
+  InputUser,
+  LabelUser,
+  TextUser
+} from "./styles";
 
 import logo from "../../assets/img/logo-branca.png";
 import api from "../../service/api";
@@ -38,6 +45,7 @@ export default function Register(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [groupUser, setGroupUser] = useState("");
   const [secureText, setSecureText] = useState(true);
   const [error, setError] = useState(null);
 
@@ -48,22 +56,30 @@ export default function Register(props) {
   async function login(e) {
     e.preventDefault();
     await setError(null);
+
     if (
       !name ||
       name === "" ||
       !email ||
       email === "" ||
       !password ||
-      password === ""
+      password === "" ||
+      !groupUser ||
+      groupUser === ""
     ) {
-      setError("Dados insuficientes!");
-      return;
+      return setError("Dados insuficientes!");
     }
+
+    if ((parseInt(groupUser) !== 1) & (parseInt(groupUser) !== 2)) {
+      return setError("Grupo de usuário não aceito!");
+    }
+
     try {
       const token = await api.post("/signup", {
         name,
         email,
-        password
+        password,
+        groupUser
       });
 
       await AuthService.setToken(token.data.token);
@@ -130,14 +146,42 @@ export default function Register(props) {
               {secureText ? (
                 <IconEyeClosed onClick={() => setSecureText(false)} />
               ) : (
-                <IconEye onClick={() => setSecureText(true)} s />
+                <IconEye onClick={() => setSecureText(true)} />
               )}
             </DivPassword>
+            <TextUser>Criar conta como</TextUser>
+            <TypeUser>
+              <InputUser
+                id="aluno"
+                value="1"
+                checked={groupUser === "1"}
+                onChange={e => {
+                  setGroupUser(e.target.value);
+                }}
+                name="type-user"
+                type="radio"
+                hidden
+              />
+              <LabelUser htmlFor="aluno">Aluno</LabelUser>
+              <InputUser
+                id="professor"
+                value="2"
+                checked={groupUser === "2"}
+                onChange={e => {
+                  setGroupUser(e.target.value);
+                }}
+                name="type-user"
+                type="radio"
+                hidden
+              />
+              <LabelUser htmlFor="professor">Professor</LabelUser>
+            </TypeUser>
             {error && <TextError>{error}</TextError>}
             <BotaoCadastrar onClick={e => login(e)}>Cadastrar</BotaoCadastrar>
           </Form>
         </SectionForm>
       </Conteudo>
+      {console.log(groupUser)}
     </Container>
   );
 }

@@ -7,6 +7,29 @@ export const IconPerson = styled(Person)`
   margin-left: 5px;
 `;
 
+export const TextUser = styled.h4`
+  font-size: 16px;
+  font-weight: 300;
+  margin: 5px 0;
+`;
+
+export const InputUser = styled.input``;
+
+export const LabelUser = styled.label`
+  padding: 12px;
+  border-radius: 5px;
+  font-weight: 500;
+`;
+
+export const TypeUser = styled.div`
+  padding: 1.5em;
+
+  & ${InputUser}:checked + ${LabelUser} {
+    background-color: #37996b;
+    color: #fff;
+  }
+`;
+
 export const BotaoCadastrar = styled.button`
   background-color: #059451;
   border: none;
