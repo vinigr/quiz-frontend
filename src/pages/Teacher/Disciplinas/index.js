@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-import {
-  Container,
-  ListaDisciplinas,
-  TitleForm,
-  Form,
-  Label,
-  Input,
-  Button
-} from "./styles";
-import api from "../../../service/api";
+
+import { Container, ListaDisciplinas, Input } from "./styles";
+
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+
 import DisciplinaItem from "../../../components/DisciplinaItem";
 import BotaoAdicionar from "../../../components/BotaoAdicionar";
 import MenuDisciplina from "../../../components/MenuDisciplina";
-import Modal from "react-responsive-modal";
+
+import api from "../../../service/api";
 
 export default function Disciplinas() {
   const [subjects, setSubjects] = useState([]);
@@ -78,29 +79,39 @@ export default function Disciplinas() {
     <div>
       {renderDisciplinas()}
       <BotaoAdicionar handleModal={handleModal} />
-      <Modal open={openModal} onClose={() => setOpenModal(false)} center>
-        <TitleForm>Disciplina</TitleForm>
-        <Form>
-          <Label>Nome</Label>
+      <Dialog
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Disciplina</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Complete os campos abaixo para cadastar uma nova disciplina em sua
+            lista.
+          </DialogContentText>
           <Input
             required
             value={name}
             onChange={e => setName(e.target.value)}
+            placeholder="Nome (Obrigatório)"
           />
-          <Label>Descrição</Label>
           <Input
             required
             value={topic}
             onChange={e => setTopic(e.target.value)}
+            placeholder="Descrição (Obrigatório)"
           />
-          {/* <Label>Código</Label>
-          <Input
-            value={accessCode}
-            onChange={e => setAccessCode(e.target.value)}
-          /> */}
-          <Button onClick={e => cadastrarDisciplina(e)}>Cadastrar</Button>
-        </Form>
-      </Modal>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenModal(false)} color="inherit">
+            Cancelar
+          </Button>
+          <Button onClick={e => cadastrarDisciplina(e)} color="inherit">
+            Cadastrar
+          </Button>
+        </DialogActions>
+      </Dialog>
       <MenuDisciplina handleClose={handleClose} anchorEl={anchorEl} />
     </div>
   );
