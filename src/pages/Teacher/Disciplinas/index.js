@@ -21,6 +21,7 @@ export default function Disciplinas() {
   const [name, setName] = useState("");
   const [topic, setTopic] = useState("");
   const [anchorEl, setAnchorEl] = useState(null);
+  const [disciplinaMenu, setDisciplinaMenu] = useState(null);
 
   useEffect(() => {
     buscaBanco();
@@ -67,8 +68,26 @@ export default function Disciplinas() {
     }
   }
 
-  function handleClick(e) {
+  async function excluirDisciplina() {
+    if (!disciplinaMenu) {
+      return handleClose();
+    }
+
+    try {
+      const disciplina = await api.delete(`/subject/${disciplinaMenu}`);
+      await setSubjects(
+        subjects.filter(subject => subject.id !== disciplina.data.id)
+      );
+    } catch (err) {
+      console.log(err);
+    }
+
+    handleClose();
+  }
+
+  function handleClick(e, id) {
     setAnchorEl(e.currentTarget);
+    setDisciplinaMenu(id);
   }
 
   function handleClose() {
@@ -112,7 +131,11 @@ export default function Disciplinas() {
           </Button>
         </DialogActions>
       </Dialog>
-      <MenuDisciplina handleClose={handleClose} anchorEl={anchorEl} />
+      <MenuDisciplina
+        handleClose={handleClose}
+        anchorEl={anchorEl}
+        excluirDisciplina={excluirDisciplina}
+      />
     </div>
   );
 }

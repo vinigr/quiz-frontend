@@ -2,7 +2,7 @@ import React from "react";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
-const MenuDisciplina = ({ handleClose, anchorEl }) => {
+const MenuDisciplina = ({ handleClose, anchorEl, excluirDisciplina }) => {
   return (
     <Menu
       id="simple-menu"
@@ -12,7 +12,7 @@ const MenuDisciplina = ({ handleClose, anchorEl }) => {
       onClose={handleClose}
     >
       <MenuItem onClick={handleClose}>Editar</MenuItem>
-      <MenuItem onClick={handleClose}>Excluir</MenuItem>
+      <MenuItem onClick={excluirDisciplina}>Excluir</MenuItem>
     </Menu>
   );
 };

@@ -28,7 +28,7 @@ const DisciplinaItem = ({ subject, handleClick }) => {
                 e.preventDefault();
               }}
             >
-              <DotsIcon onClick={handleClick} />
+              <DotsIcon onClick={e => handleClick(e, subject.id)} />
             </DivDots>
           </DivTop>
           <DivBottom>
