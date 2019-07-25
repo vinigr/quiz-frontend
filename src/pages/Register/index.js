@@ -45,7 +45,7 @@ export default function Register(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [groupUser, setGroupUser] = useState("");
+  const [groupUser, setGroupUser] = useState("1");
   const [secureText, setSecureText] = useState(true);
   const [error, setError] = useState(null);
 
@@ -181,7 +181,6 @@ export default function Register(props) {
           </Form>
         </SectionForm>
       </Conteudo>
-      {console.log(groupUser)}
     </Container>
   );
 }

@@ -37,7 +37,7 @@ export const BotaoCadastrar = styled.button`
   height: 40px;
   padding: 4px 6px;
   margin-top: 10px;
-  width: 36%;
+  width: 140px;
   color: #f1f1f1;
   font-size: 24px;
   font-family: "Rubik", sans-serif;
