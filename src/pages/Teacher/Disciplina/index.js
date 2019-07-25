@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Pessoas from "./Pessoas";
 import Mural from "./Mural";
+import Questionarios from "./Questionarios";
 import { Container } from "./styles";
 
 export default function Disciplina(props) {
@@ -10,6 +11,7 @@ export default function Disciplina(props) {
       <Switch>
         <Route exact path={`${props.match.path}/`} component={Mural} />
         <Route path={`${props.match.path}/p`} component={Pessoas} />
+        <Route path={`${props.match.path}/q`} component={Questionarios} />
       </Switch>
     </Container>
   );
