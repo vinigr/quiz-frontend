@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
@@ -7,4 +8,18 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Title = styled.h2``;
+export const Title = styled.h2`
+  font-size: 30px;
+  font-family: "Rubik", sans-serif;
+  margin-top: 5px;
+`;
+
+export const Add = styled(Link)`
+  padding: 10px;
+  width: 6em;
+  text-decoration: none;
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+`;
