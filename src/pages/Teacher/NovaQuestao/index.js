@@ -1,5 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import MultiplaEscolha from "./MultiplaEscolha";
+import TrueOrFalse from "./TrueOrFalse";
 
 import {
   Container,
@@ -16,7 +18,6 @@ import trueOrFalse from "../../../assets/img/true-or-false.png";
 export default function NovaQuestao(props) {
   return (
     <Container>
-      {console.log(props)}
       <Title>Nova Questão</Title>
       <DivOptions>
         <Option exact to={`${props.match.path}`}>
@@ -35,13 +36,9 @@ export default function NovaQuestao(props) {
         <Route
           exact
           path={`${props.match.path}/`}
-          component={() => <h2>Multipla</h2>}
+          component={MultiplaEscolha}
         />
-        <Route
-          exact
-          path={`${props.match.path}/tf`}
-          component={() => <h2>T or f</h2>}
-        />
+        <Route exact path={`${props.match.path}/tf`} component={TrueOrFalse} />
       </Switch>
     </Container>
   );
