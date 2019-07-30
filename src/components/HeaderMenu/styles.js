@@ -25,6 +25,17 @@ const Icon = `
   }
 `;
 
+export const DivLogoMenu = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+export const AppLogo = styled.img`
+  height: 40px;
+  width: 40px;
+`;
+
 export const IconNotificacoes = styled(Notifications)`
   ${Icon};
 `;

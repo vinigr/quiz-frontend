@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Menu,
   DivLogo,
   AppLogo,
   NomeSite,
@@ -14,50 +13,54 @@ import {
   IconSettings,
   Linha
 } from "./styles";
+
+import { IconMenu } from "../HeaderMenu/styles";
+
 import logo from "../../assets/img/logo-verde.png";
 import { withRouter } from "react-router-dom";
 
 function SideMenu(props) {
   return (
-    <Menu sideMenu={props.sideMenu}>
+    <>
       <DivLogo>
+        <IconMenu />
         <AppLogo src={logo} />
-        {props.sideMenu && <NomeSite>Quest On</NomeSite>}
+        <NomeSite>Quest On</NomeSite>
       </DivLogo>
       <List>
         <LinkMenu exact={true} to={`${props.match.path}`}>
           <ItemList>
             <IconHome />
-            {props.sideMenu && "Início"}
+            Início
           </ItemList>
         </LinkMenu>
         <LinkMenu to={`${props.match.path}/d`}>
           <ItemList>
             <IconSubject />
-            {props.sideMenu && "Disciplinas"}
+            Disciplinas
           </ItemList>
         </LinkMenu>
         <LinkMenu to={`${props.match.path}/qt`}>
           <ItemList>
             <IconQuestion />
-            {props.sideMenu && "Questões"}
+            Questões
           </ItemList>
         </LinkMenu>
         <LinkMenu to={`${props.match.path}/q`}>
           <ItemList>
             <IconQuiz />
-            {props.sideMenu && "Questionários"}
+            Questionários
           </ItemList>
         </LinkMenu>
         <Linha />
         <LinkMenu to={`${props.match.path}/c`}>
           <ItemList>
             <IconSettings />
-            {props.sideMenu && "Configurações"}
+            Configurações
           </ItemList>
         </LinkMenu>
       </List>
-    </Menu>
+    </>
   );
 }
 

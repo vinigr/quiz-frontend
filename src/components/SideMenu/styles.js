@@ -6,24 +6,17 @@ import { QuestionAnswer } from "styled-icons/material/QuestionAnswer";
 import { Settings } from "styled-icons/material/Settings";
 import { QuestionCircle } from "styled-icons/fa-solid/QuestionCircle";
 
-export const Menu = styled.nav`
-  background-color: #fff;
-  display: flex;
-  height: 100vh;
-  width: ${props => (props.sideMenu ? "16%" : "6%")};
-  flex-direction: column;
-`;
-
 export const DivLogo = styled.div`
   display: flex;
   align-items: center;
-  padding: 5px 20px;
-  justify-content: flex-start;
+  padding: 10px 0;
+  justify-content: center;
   width: 100%;
   border-bottom: solid 0.05em #e8e8e8;
 `;
 
 export const AppLogo = styled.img`
+  margin-left: 10px;
   height: 50px;
   width: 50px;
 `;
@@ -32,6 +25,7 @@ export const NomeSite = styled.h1`
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   margin: 0;
+  font-size: 24px;
 `;
 
 export const List = styled.ul`
