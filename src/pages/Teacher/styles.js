@@ -1,17 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #f9f9f9;
+  background-color: #fcfcfc;
   display: flex;
-  height: 100vh;
+  height: 100%;
+  flex-direction: column;
 `;
 
 export const Main = styled.main`
-  padding: 10px;
-`;
-
-export const Content = styled.div`
   display: flex;
-  flex-direction: column;
-  width: ${props => (props.sideMenu ? "84%" : "94%")};
+  padding: 10px 0;
+  width: 100%;
 `;
