@@ -7,6 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
+  font-family: "Rubik", sans-serif;
 `;
 
 export const Title = styled.h2`
@@ -17,6 +18,43 @@ export const Title = styled.h2`
 
 export const DivQuestions = styled.div`
   width: 80%;
+`;
+
+export const DivOptions = styled.div`
+  width: 80%;
+`;
+
+export const DivOption = styled.div`
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  background-color: ${props =>
+    props.answer === props.position ? "#37996b" : "#DDDDDD"};
+
+  p {
+    font-weight: 400;
+  }
+`;
+
+export const Dates = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: #4d4d4d;
+    font-size: 10px;
+  }
+
+  div:last-child {
+    span {
+      text-align: end;
+    }
+  }
 `;
 
 export const DivImage = styled.div`
@@ -41,10 +79,16 @@ export const Add = styled(Link)`
   padding: 10px;
   width: 6em;
   text-decoration: none;
-  color: #000;
-  background-color: #fff;
+  color: #fff;
   text-align: center;
   font-family: "Rubik", sans-serif;
+  background-color: #5f5f5f;
+  border-radius: 4px;
+  margin-top: 10px;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export const IconArrow = styled(KeyboardArrowDown)`

@@ -4,6 +4,7 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
 import {
   Container,
@@ -12,9 +13,14 @@ import {
   DivImage,
   Image,
   IconArrow,
-  Add
+  Add,
+  DivOptions,
+  DivOption,
+  Dates
 } from "./styles";
 import api from "../../../service/api";
+
+var format = require("date-fns/format");
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -40,6 +46,29 @@ export default function Questoes(props) {
     }
   }
 
+  function renderOptions(question) {
+    const arrayOptions = [];
+    arrayOptions.push(
+      question.option1,
+      question.option2,
+      question.option3,
+      question.option4,
+      question.option5
+    );
+    Object.assign(question, { options: arrayOptions });
+
+    const { options } = question;
+
+    return options.map(
+      (option, index) =>
+        option !== null && (
+          <DivOption key={index} position={index} answer={question.answer}>
+            <p>{option}</p>
+          </DivOption>
+        )
+    );
+  }
+
   return (
     <Container>
       <Title>Questões</Title>
@@ -63,11 +92,17 @@ export default function Questoes(props) {
                   <Image src={question.pathImage} />
                 </DivImage>
               )}
-              <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
-              </Typography>
+              <DivOptions>{renderOptions(question)}</DivOptions>
+              <Dates>
+                <div>
+                  <span>Data de criação</span>
+                  <span>{format(question.createdAt, "DD/MM/YYYY")}</span>
+                </div>
+                <div>
+                  <span>Data de atualização</span>
+                  <span>{format(question.updatedAt, "DD/MM/YYYY")}</span>
+                </div>
+              </Dates>
             </ExpansionPanelDetails>
           </ExpansionPanel>
         ))}
