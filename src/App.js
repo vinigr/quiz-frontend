@@ -1,4 +1,5 @@
 import React from "react";
+import GlobalStyle from "./styles/global";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import {
   Home,
@@ -85,6 +86,7 @@ const App = () => (
       <TeacherRoute path="/t" component={props => <Teacher {...props} />} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
+    <GlobalStyle />
   </BrowserRouter>
 );
 
