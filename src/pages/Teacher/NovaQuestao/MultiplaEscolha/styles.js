@@ -44,9 +44,6 @@ export const Image = styled.img`
 export const IconClose = styled(Close)`
   color: #999;
   height: 30px;
-  /* position: absolute;
-  right: 5;
-  top: 5; */
 `;
 
 export const AreaPergunta = styled.textarea`
