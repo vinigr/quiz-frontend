@@ -36,6 +36,21 @@ export const DivOption = styled.div`
   }
 `;
 
+export const DivAnswer = styled.div`
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  background-color: ${props => (props.answer ? "#37996b" : "#CF4848")};
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  p {
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+  }
+`;
+
 export const Dates = styled.div`
   width: 100%;
   display: flex;
