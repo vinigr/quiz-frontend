@@ -9,6 +9,7 @@ export const Container = styled.div`
   width: 80%;
   align-items: center;
   margin-top: 50px;
+  font-family: "Rubik", sans-serif;
 `;
 
 export const DivUpload = styled.div`
@@ -30,7 +31,6 @@ export const DivImage = styled.div`
   border: 1px dashed #ddd;
   color: #999;
   margin-top: 20px;
-  cursor: pointer;
   width: 60%;
   margin-bottom: 20px;
   display: flex;
@@ -44,6 +44,7 @@ export const Image = styled.img`
 export const IconClose = styled(Close)`
   color: #999;
   height: 30px;
+  cursor: pointer;
 `;
 
 export const AreaPergunta = styled.textarea`

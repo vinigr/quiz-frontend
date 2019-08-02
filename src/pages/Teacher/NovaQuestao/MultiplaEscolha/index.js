@@ -91,7 +91,7 @@ export default function MultiplaEscolha() {
     data.append("answer", answer);
 
     try {
-      const resp = await api.post("/questionME", data);
+      const resp = await api.post("/questionMe", data);
       console.log(resp);
     } catch (err) {
       console.log(err);
