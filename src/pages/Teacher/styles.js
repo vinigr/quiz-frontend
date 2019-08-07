@@ -12,4 +12,5 @@ export const Main = styled.main`
   display: flex;
   padding: 10px 0;
   width: 100%;
+  margin-top: 60px;
 `;

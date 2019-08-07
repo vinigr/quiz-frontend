@@ -13,6 +13,8 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 0.05em #e8e8e8;
+  position: fixed;
+  width: calc(100vw - 40px);
 `;
 
 const Icon = `

@@ -19,5 +19,5 @@ export const Title = styled.h2`
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   font-size: 24px;
-  margin: 0;
+  margin: 0 0 16px;
 `;
