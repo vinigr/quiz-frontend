@@ -97,8 +97,12 @@ export const AreaOption = styled.textarea`
   resize: none;
   width: 80%;
   border-radius: 2px;
-  background-color: #f2f7ef;
+  background-color: #f1f1f1;
   padding: 5px;
+
+  & :focus {
+    border: 3px solid #555;
+  }
 `;
 
 export const TextError = styled.h4`

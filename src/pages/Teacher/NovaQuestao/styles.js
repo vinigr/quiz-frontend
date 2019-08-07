@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { FormatListNumbered } from "styled-icons/material/FormatListNumbered";
 
 export const Container = styled.div`
   display: flex;
@@ -11,11 +12,11 @@ export const Container = styled.div`
 export const Title = styled.h2`
   font-size: 26px;
   font-family: "Rubik", sans-serif;
-  margin-top: 5px;
 `;
 
 export const DivOptions = styled.div`
   display: flex;
+  margin-top: 20px;
 `;
 
 export const Option = styled(NavLink)`
@@ -50,8 +51,13 @@ export const OptionText = styled.h3`
   margin: 0;
   color: #343434;
   font-size: 16px;
+  text-align: center;
 `;
 
 export const ImgTrueFalse = styled.img`
+  height: 60%;
+`;
+
+export const IconListNumbered = styled(FormatListNumbered)`
   height: 60%;
 `;

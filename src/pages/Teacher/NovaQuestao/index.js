@@ -10,7 +10,8 @@ import {
   Option,
   OptionDiv,
   OptionText,
-  ImgTrueFalse
+  ImgTrueFalse,
+  IconListNumbered
 } from "./styles";
 
 import trueOrFalse from "../../../assets/img/true-or-false.png";
@@ -23,6 +24,7 @@ export default function NovaQuestao(props) {
         <Option exact to={`${props.match.path}`}>
           <OptionDiv>
             <OptionText>Múltipla escolha</OptionText>
+            <IconListNumbered />
           </OptionDiv>
         </Option>
         <Option to={`${props.match.path}/tf`}>

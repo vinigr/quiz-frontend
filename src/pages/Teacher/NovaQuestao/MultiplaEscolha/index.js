@@ -39,7 +39,7 @@ const _defaultCosts = [
   }
 ];
 
-export default function MultiplaEscolha() {
+export default function MultiplaEscolha(props) {
   const [question, setQuestion] = useState("");
   const [image, setImage] = useState();
   const [options, setOptions] = useState(_defaultCosts);
@@ -107,6 +107,7 @@ export default function MultiplaEscolha() {
 
   return (
     <Container>
+      {console.log(props)}
       <AreaPergunta
         value={question}
         placeholder="Pergunta"
