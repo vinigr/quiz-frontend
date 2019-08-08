@@ -12,6 +12,25 @@ export const Container = styled.div`
     margin-bottom: 10px;
   }
 
+  div.select {
+    width: 80%;
+    display: flex;
+    justify-content: start;
+    margin: 10px 0;
+
+    div {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+
+  select {
+    height: 40px;
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 5px;
+  }
+
   input {
     height: 40px;
     border: none;

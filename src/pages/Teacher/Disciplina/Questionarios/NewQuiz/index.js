@@ -40,6 +40,7 @@ export default function NewQuiz(props) {
   const [questions, setQuestions] = useState([]);
   const [selectedQuestionsME, setSelectedQuestionsME] = useState([]);
   const [selectedQuestionsTF, setSelectedQuestionsTF] = useState([]);
+  const [groupQuestions, setGroupQuestions] = useState(1);
   const [error, setError] = useState();
 
   function valid(current) {
@@ -48,17 +49,29 @@ export default function NewQuiz(props) {
 
   useEffect(() => {
     document.title = "Novo Quiz";
+  }, []);
 
-    async function buscaBanco() {
+  useEffect(() => {
+    async function buscaAllQuestions() {
       try {
-        const questions = await api.get("/questionsAll");
-        setQuestions(questions.data);
+        if (parseInt(groupQuestions) === 1) {
+          const questions = await api.get(
+            `/questionsSubject/${props.match.params.id}`
+          );
+          setQuestions(questions.data);
+        }
+
+        if (parseInt(groupQuestions) === 2) {
+          const questions = await api.get("/questionsAll");
+          setQuestions(questions.data);
+        }
       } catch (error) {
         console.log(error);
       }
     }
-    buscaBanco();
-  }, []);
+
+    buscaAllQuestions();
+  }, [groupQuestions, props.match.params.id]);
 
   function handleDate(e) {
     if (typeof e !== "object") return;
@@ -143,6 +156,15 @@ export default function NewQuiz(props) {
         />
       </label>
       <h3>Questões</h3>
+      <div className="select">
+        <div>
+          <label>Listar questões</label>
+          <select onChange={e => setGroupQuestions(e.target.value)}>
+            <option value={1}>Disciplina</option>
+            <option value={2}>Todas</option>
+          </select>
+        </div>
+      </div>
       <span>
         {selectedQuestionsME.length + selectedQuestionsTF.length !== 0 &&
           `${selectedQuestionsME.length +
