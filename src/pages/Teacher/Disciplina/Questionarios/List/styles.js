@@ -5,6 +5,29 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ul {
+    list-style: none;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #e3e3e3;
+    border-radius: 6px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+`;
+
+export const LinkQuiz = styled(Link)`
+  width: 100%;
+  text-decoration: none;
+  color: #000;
 `;
 
 export const Add = styled(Link)`
