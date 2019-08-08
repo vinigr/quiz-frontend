@@ -20,7 +20,7 @@ import {
 } from "./styles";
 import api from "../../../service/api";
 
-var format = require("date-fns/format");
+const format = require("date-fns/format");
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -76,7 +76,6 @@ export default function Questoes(props) {
         {questions.questionsMe &&
           questions.questionsMe.map(question => (
             <ExpansionPanel key={question.id}>
-              {console.log(question)}
               <ExpansionPanelSummary
                 expandIcon={<IconArrow />}
                 aria-controls="panel1a-content"

@@ -107,7 +107,6 @@ export default function MultiplaEscolha(props) {
 
   return (
     <Container>
-      {console.log(props)}
       <AreaPergunta
         value={question}
         placeholder="Pergunta"
