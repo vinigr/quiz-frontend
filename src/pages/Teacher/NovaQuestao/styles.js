@@ -7,6 +7,13 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
+
+  select {
+    height: 40px;
+    border-radius: 4px;
+    margin-top: 20px;
+    padding: 5px;
+  }
 `;
 
 export const Title = styled.h2`

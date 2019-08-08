@@ -21,7 +21,7 @@ import {
 
 import api from "../../../../service/api";
 
-export default function TrueOrFalse() {
+export default function TrueOrFalse(props) {
   const [question, setQuestion] = useState("");
   const [image, setImage] = useState();
   const [answerCorrect, setAnswerCorrect] = useState();
@@ -51,11 +51,19 @@ export default function TrueOrFalse() {
     if (!question) return setError("Pergunta incompleta!");
     if (!answerCorrect) return setError("Opção correta não selecionada!");
 
+    const subjectId =
+      props.subjectSelect &&
+      props.subjectSelect !== undefined &&
+      props.subjectSelect !== -1
+        ? props.subjectSelect
+        : null;
+
     const data = new FormData();
 
     data.append("question", question);
     data.append("image", image);
     data.append("answer", answerCorrect);
+    data.append("subjectId", subjectId);
 
     try {
       const resp = await api.post("/questionTf", data);

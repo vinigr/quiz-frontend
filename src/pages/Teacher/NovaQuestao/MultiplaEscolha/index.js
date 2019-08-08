@@ -83,12 +83,20 @@ export default function MultiplaEscolha(props) {
 
     const answer = optionsValid.indexOf(options[answerCorrect]);
 
+    const subjectId =
+      props.subjectSelect &&
+      props.subjectSelect !== undefined &&
+      props.subjectSelect !== -1
+        ? props.subjectSelect
+        : null;
+
     const data = new FormData();
 
     data.append("question", question);
     data.append("image", image);
     data.append("options", JSON.stringify(optionsValid));
     data.append("answer", answer);
+    data.append("subjectId", subjectId);
 
     try {
       const resp = await api.post("/questionMe", data);
