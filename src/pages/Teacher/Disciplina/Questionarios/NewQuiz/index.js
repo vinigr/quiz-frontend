@@ -36,7 +36,8 @@ const useStyles = makeStyles(theme => ({
 export default function NewQuiz(props) {
   const classes = useStyles();
   const [name, setName] = useState("");
-  const [date, setDate] = useState();
+  const [releasedDate, setReleasedtDate] = useState(new Date());
+  const [expirationDate, setExpirationDate] = useState();
   const [questions, setQuestions] = useState([]);
   const [selectedQuestionsME, setSelectedQuestionsME] = useState([]);
   const [selectedQuestionsTF, setSelectedQuestionsTF] = useState([]);
@@ -45,6 +46,10 @@ export default function NewQuiz(props) {
 
   function valid(current) {
     return isAfter(current, new Date());
+  }
+
+  function validExpirationDate(current) {
+    return isAfter(current, releasedDate);
   }
 
   useEffect(() => {
@@ -76,7 +81,13 @@ export default function NewQuiz(props) {
   function handleDate(e) {
     if (typeof e !== "object") return;
 
-    return setDate(e);
+    return setReleasedtDate(e);
+  }
+
+  function handleDateExpiration(e) {
+    if (typeof e !== "object") return;
+
+    return setExpirationDate(e);
   }
 
   function removeQuestionMe(id) {
@@ -93,7 +104,14 @@ export default function NewQuiz(props) {
     setError(null);
     if (!name || name === "") return setError("Dados insuficientes!");
 
-    if (!date || typeof date !== "object") return setError("Data inválida!");
+    if (!releasedDate || typeof releasedDate !== "object")
+      return setError("Data inválida!");
+
+    if (expirationDate && typeof expirationDate !== "object")
+      return setError("Data de validade inválida!");
+
+    // if (!releasedDate || typeof date !== "object")
+    //   return setError("Data inválida!");
 
     if (selectedQuestionsME.length + selectedQuestionsTF.length === 0)
       return setError("As questões não foram selecionadas!");
@@ -101,13 +119,16 @@ export default function NewQuiz(props) {
     try {
       await api.post("/createQuiz", {
         name,
-        date,
+        releasedDate,
+        expirationDate,
         selectedQuestionsME,
         selectedQuestionsTF,
         subjectId: props.match.params.id
       });
+
+      return props.history.goBack();
     } catch (error) {
-      console.log(error);
+      if (error.response) setError("Erro ao cadastrar quiz!");
     }
   }
 
@@ -147,12 +168,22 @@ export default function NewQuiz(props) {
         Data de liberação:
         <DateTime
           defaultValue={new Date()}
-          value={date}
+          value={releasedDate}
           locale={pt}
           dateFormat="DD/MM/YYYY"
           isValidDate={valid}
           onChange={e => handleDate(e)}
-          placeholder="Data de liberação"
+        />
+      </label>
+      <label>
+        Expira em:
+        <DateTime
+          defaultValue={new Date()}
+          value={expirationDate}
+          locale={pt}
+          dateFormat="DD/MM/YYYY"
+          isValidDate={valid}
+          onChange={e => handleDateExpiration(e)}
         />
       </label>
       <h3>Questões</h3>
