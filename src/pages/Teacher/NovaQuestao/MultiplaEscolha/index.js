@@ -40,7 +40,7 @@ const _defaultCosts = [
 ];
 
 export default function MultiplaEscolha(props) {
-  const [question, setQuestion] = useState("");
+  const [question, setQuestion] = useState();
   const [image, setImage] = useState();
   const [options, setOptions] = useState(_defaultCosts);
   const [answerCorrect, setAnswerCorrect] = useState();
@@ -82,6 +82,9 @@ export default function MultiplaEscolha(props) {
       return setError("É preciso ao menos 2 alternativas válidas");
 
     const answer = optionsValid.indexOf(options[answerCorrect]);
+
+    if (!props.subjectSelect || props.subjectSelect === -1)
+      setError("Disciplina não selecionada!");
 
     const subjectId =
       props.subjectSelect &&

@@ -50,7 +50,7 @@ export default function NovaQuestao(props) {
         </Option>
       </DivOptions>
       <select onChange={e => setSubjectSelect(e.target.value)}>
-        <option value={-1}>Disciplina (Não obrigatório)</option>
+        <option value={-1}>Disciplina</option>
         {subjects &&
           subjects.map(subject => (
             <option key={subject.id} value={subject.id}>

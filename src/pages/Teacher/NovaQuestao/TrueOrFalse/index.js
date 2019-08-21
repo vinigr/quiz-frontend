@@ -51,6 +51,9 @@ export default function TrueOrFalse(props) {
     if (!question) return setError("Pergunta incompleta!");
     if (!answerCorrect) return setError("Opção correta não selecionada!");
 
+    if (!props.subjectSelect || props.subjectSelect === -1)
+      setError("Disciplina não selecionada!");
+
     const subjectId =
       props.subjectSelect &&
       props.subjectSelect !== undefined &&
