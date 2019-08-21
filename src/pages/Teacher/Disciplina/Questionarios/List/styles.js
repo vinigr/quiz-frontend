@@ -5,12 +5,18 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Rubik", sans-serif;
 
   ul {
     list-style: none;
     width: 70%;
     display: flex;
     flex-direction: column;
+
+    h2 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
   }
 
   li {
