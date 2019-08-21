@@ -62,10 +62,12 @@ export const SectionForm = styled.section`
 export const Title = styled.h2`
   font-size: 40px;
   color: #059451;
+  margin-bottom: 10px;
 `;
 
 export const DivIcons = styled.div`
   display: flex;
+  margin-bottom: 10px;
 `;
 
 export const ButtonSocial = styled.button`
@@ -107,6 +109,7 @@ export const IconGoogle = styled(Google)`
 export const TextForm = styled.h4`
   font-size: 16px;
   font-weight: 300;
+  margin-bottom: 10px;
 `;
 
 export const Form = styled.form`
@@ -232,13 +235,14 @@ export const DivInfo = styled.div`
 export const TitleInfo = styled.h2`
   font-weight: 600;
   font-size: 36px;
-  margin: 0 0 5px;
+  margin: 0 0 10px;
 `;
 
 export const TextInfo = styled.h3`
   font-weight: 500;
   font-size: 24px;
   text-align: center;
+  margin-bottom: 10px;
 `;
 
 export const LinkCadastro = styled(Link)`

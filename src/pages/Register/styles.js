@@ -19,6 +19,7 @@ export const LabelUser = styled.label`
   padding: 12px;
   border-radius: 5px;
   font-weight: 500;
+  cursor: pointer;
 `;
 
 export const TypeUser = styled.div`

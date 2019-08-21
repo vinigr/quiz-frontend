@@ -24,6 +24,7 @@ export const Section = styled.section`
 export const Title = styled.h2`
   font-size: 32px;
   color: #059451;
+  margin-bottom: 10px;
 `;
 
 export const Form = styled.form`
