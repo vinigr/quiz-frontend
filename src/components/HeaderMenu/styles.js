@@ -15,6 +15,7 @@ export const Header = styled.header`
   border-bottom: solid 0.05em #e8e8e8;
   position: fixed;
   width: calc(100vw - 40px);
+  z-index: 5;
 `;
 
 const Icon = `
