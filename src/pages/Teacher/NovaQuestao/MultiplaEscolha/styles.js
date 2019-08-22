@@ -49,10 +49,11 @@ export const IconClose = styled(Close)`
 
 export const AreaPergunta = styled.textarea`
   resize: none;
-  width: 80%;
-  border-radius: 2px;
-  background-color: #f2f7ef;
+  width: 70%;
+  border-radius: 4px;
+  background-color: #f8f8f8;
   padding: 5px;
+  box-shadow: 0 0.01em 0 #9f9f9f;
 `;
 
 export const IconImage = styled(ImageAdd)`
@@ -69,9 +70,9 @@ export const LabelOption = styled.label`
   align-items: center;
   padding: 5px 10px;
   justify-content: space-around;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  background-color: #cdcdcd;
+  background-color: #e0e0e0;
   margin-bottom: 5px;
 `;
 
@@ -84,7 +85,7 @@ export const DivOptions = styled.div`
   display: flex;
   flex-direction: column;
   width: 60%;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 `;
 
 export const DivOption = styled.div`
@@ -96,13 +97,24 @@ export const DivOption = styled.div`
 export const AreaOption = styled.textarea`
   resize: none;
   width: 80%;
-  border-radius: 2px;
-  background-color: #f1f1f1;
+  border-radius: 4px;
+  background-color: #f4f4f4;
   padding: 5px;
 
   & :focus {
     border: 3px solid #555;
   }
+`;
+
+export const AreaExplication = styled.textarea`
+  resize: none;
+  width: 56%;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  padding: 5px;
+  box-shadow: 0 0.01em 0 #9f9f9f;
+  height: 60px;
+  margin-bottom: 20px;
 `;
 
 export const TextError = styled.h4`

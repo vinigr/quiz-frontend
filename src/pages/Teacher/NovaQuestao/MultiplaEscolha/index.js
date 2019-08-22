@@ -15,6 +15,7 @@ import {
   DivOption,
   AreaOption,
   IconVerified,
+  AreaExplication,
   TextError,
   ButtonCreate
 } from "./styles";
@@ -44,6 +45,7 @@ export default function MultiplaEscolha(props) {
   const [image, setImage] = useState();
   const [options, setOptions] = useState(_defaultCosts);
   const [answerCorrect, setAnswerCorrect] = useState();
+  const [explanation, setExplanation] = useState();
   const [error, setError] = useState(null);
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -99,6 +101,7 @@ export default function MultiplaEscolha(props) {
     data.append("image", image);
     data.append("options", JSON.stringify(optionsValid));
     data.append("answer", answer);
+    data.append("explanation", explanation);
     data.append("subjectId", subjectId);
 
     try {
@@ -164,6 +167,13 @@ export default function MultiplaEscolha(props) {
           </DivOption>
         ))}
       </DivOptions>
+      <AreaExplication
+        value={explanation}
+        placeholder="Explicação (opcional)"
+        rows="5"
+        required
+        onChange={e => setExplanation(e.target.value)}
+      />
       {error && <TextError>{error}</TextError>}
       <ButtonCreate onClick={registerQuestion}>Cadastrar questão</ButtonCreate>
     </Container>

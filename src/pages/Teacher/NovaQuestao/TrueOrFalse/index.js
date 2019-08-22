@@ -16,7 +16,8 @@ import {
   DivUpload,
   IconImage,
   TextError,
-  ButtonCreate
+  ButtonCreate,
+  AreaExplication
 } from "../MultiplaEscolha/styles";
 
 import api from "../../../../service/api";
@@ -25,6 +26,7 @@ export default function TrueOrFalse(props) {
   const [question, setQuestion] = useState("");
   const [image, setImage] = useState();
   const [answerCorrect, setAnswerCorrect] = useState();
+  const [explanation, setExplanation] = useState();
   const [error, setError] = useState(null);
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -66,6 +68,7 @@ export default function TrueOrFalse(props) {
     data.append("question", question);
     data.append("image", image);
     data.append("answer", answerCorrect);
+    data.append("explanation", explanation);
     data.append("subjectId", subjectId);
 
     try {
@@ -126,6 +129,13 @@ export default function TrueOrFalse(props) {
           <LabelOption htmlFor="false">Falso</LabelOption>
         </DivOption>
       </DivOptions>
+      <AreaExplication
+        value={explanation}
+        placeholder="Explicação (opcional)"
+        rows="5"
+        required
+        onChange={e => setExplanation(e.target.value)}
+      />
       {error && <TextError>{error}</TextError>}
       <ButtonCreate onClick={registerQuestion}>Cadastrar questão</ButtonCreate>
     </Container>
