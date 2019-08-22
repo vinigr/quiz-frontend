@@ -6,17 +6,16 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Rubik", sans-serif;
+  h2 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
 
   ul {
     list-style: none;
     width: 70%;
     display: flex;
     flex-direction: column;
-
-    h2 {
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
   }
 
   li {

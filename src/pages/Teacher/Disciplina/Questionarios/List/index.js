@@ -27,16 +27,21 @@ export default function List(props) {
 
   return (
     <Container>
-      <ul>
-        <h2>Ativos</h2>
-        {quizzesAvailable.map(quiz => (
-          <li key={quiz.id}>
-            <LinkQuiz to={`${props.match.url}/i/${quiz.id}`}>
-              {quiz.name}
-            </LinkQuiz>
-          </li>
-        ))}
-      </ul>
+      {quizzesAvailable.length + quizzesNotAvailable.length === 0 && (
+        <h2>Sem quizzes cadastrados</h2>
+      )}
+      {quizzesAvailable.length !== 0 && (
+        <ul>
+          <h2>Ativos</h2>
+          {quizzesAvailable.map(quiz => (
+            <li key={quiz.id}>
+              <LinkQuiz to={`${props.match.url}/i/${quiz.id}`}>
+                {quiz.name}
+              </LinkQuiz>
+            </li>
+          ))}
+        </ul>
+      )}
       {quizzesNotAvailable.length !== 0 && (
         <ul>
           <h2>Expirados</h2>
