@@ -23,6 +23,7 @@ import {
 } from "./styles";
 
 import api from "../../../../../service/api";
+const differenceInMinutes = require("date-fns/difference_in_minutes");
 
 const format = require("date-fns/format");
 
@@ -41,15 +42,13 @@ export default function NewQuiz(props) {
   const [questions, setQuestions] = useState([]);
   const [selectedQuestionsME, setSelectedQuestionsME] = useState([]);
   const [selectedQuestionsTF, setSelectedQuestionsTF] = useState([]);
+  const [feedbackAnswer, setFeedbackAnswer] = useState(false);
   const [groupQuestions, setGroupQuestions] = useState(1);
   const [error, setError] = useState();
+  const [expirationActive, setExpirationActive] = useState(false);
 
   function valid(current) {
     return isAfter(current, new Date());
-  }
-
-  function validExpirationDate(current) {
-    return isAfter(current, releasedDate);
   }
 
   useEffect(() => {
@@ -110,8 +109,18 @@ export default function NewQuiz(props) {
     if (expirationDate && typeof expirationDate !== "object")
       return setError("Data de validade inválida!");
 
-    // if (!releasedDate || typeof date !== "object")
-    //   return setError("Data inválida!");
+    if (expirationActive) {
+      if (expirationDate < Date.now()) {
+        setError("Data de validade já expirou!");
+        return;
+      }
+      const timeQuiz = differenceInMinutes(expirationDate, releasedDate);
+
+      if (timeQuiz <= 5 || NaN) {
+        setError("Tempo de disponibilizade do quiz muito curto!");
+        return;
+      }
+    }
 
     if (selectedQuestionsME.length + selectedQuestionsTF.length === 0)
       return setError("As questões não foram selecionadas!");
@@ -120,9 +129,10 @@ export default function NewQuiz(props) {
       await api.post("/createQuiz", {
         name,
         releasedDate,
-        expirationDate,
+        expirationDate: expirationActive ? expirationDate : null,
         selectedQuestionsME,
         selectedQuestionsTF,
+        feedbackAnswer,
         subjectId: props.match.params.id
       });
 
@@ -175,24 +185,54 @@ export default function NewQuiz(props) {
           onChange={e => handleDate(e)}
         />
       </label>
-      <label>
-        Expira em:
-        <DateTime
-          defaultValue={new Date()}
-          value={expirationDate}
-          locale={pt}
-          dateFormat="DD/MM/YYYY"
-          isValidDate={valid}
-          onChange={e => handleDateExpiration(e)}
-        />
-      </label>
+      {!expirationActive ? (
+        <button
+          className="expiration"
+          onClick={() => setExpirationActive(true)}
+        >
+          Adicionar data de expiração
+        </button>
+      ) : (
+        <>
+          <button
+            className="expiration"
+            onClick={() => setExpirationActive(false)}
+          >
+            Desativar data de expiração
+          </button>
+          <label>
+            Expira em:
+            <DateTime
+              defaultValue={new Date()}
+              value={expirationDate}
+              locale={pt}
+              dateFormat="DD/MM/YYYY"
+              isValidDate={valid}
+              onChange={e => handleDateExpiration(e)}
+            />
+          </label>
+        </>
+      )}
       <h3>Questões</h3>
       <div className="select">
         <div>
           <label>Listar questões</label>
-          <select onChange={e => setGroupQuestions(e.target.value)}>
+          <select
+            value={groupQuestions}
+            onChange={e => setGroupQuestions(e.target.value)}
+          >
             <option value={1}>Disciplina</option>
             <option value={2}>Todas</option>
+          </select>
+        </div>
+        <div className="feedback">
+          <label>Resposta ao jogador</label>
+          <select
+            value={feedbackAnswer}
+            onChange={e => setFeedbackAnswer(e.target.value)}
+          >
+            <option value={false}>Ao final</option>
+            <option value={true}>A cada questão</option>
           </select>
         </div>
       </div>

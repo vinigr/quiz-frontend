@@ -12,14 +12,25 @@ export const Container = styled.div`
     margin-bottom: 10px;
   }
 
+  button.expiration {
+    margin-bottom: 10px;
+  }
+
   div.select {
     width: 80%;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     margin: 10px 0;
+    align-items: center;
 
     div {
+      display: flex;
       flex-direction: column;
+      align-items: flex-start;
+    }
+
+    div.feedback {
+      display: flex;
       align-items: flex-end;
     }
   }
