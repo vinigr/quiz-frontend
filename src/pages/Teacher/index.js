@@ -6,6 +6,8 @@ import Disciplinas from "./Disciplinas";
 import Disciplina from "./Disciplina";
 import Questoes from "./Questoes";
 import NovaQuestao from "./NovaQuestao";
+import Questionarios from "./Questionarios";
+import Quiz from "./Disciplina/Questionarios/Quiz";
 import { Switch, Route } from "react-router-dom";
 
 export default function Teacher(props) {
@@ -20,9 +22,11 @@ export default function Teacher(props) {
           <Route exact path={`${props.match.path}/qt`} component={Questoes} />
           <Route path={`${props.match.path}/qt/new`} component={NovaQuestao} />
           <Route
+            exact
             path={`${props.match.path}/q`}
-            component={() => <h2>Questionários</h2>}
+            component={Questionarios}
           />
+          <Route path={`${props.match.path}/q/:id`} component={Quiz} />
         </Switch>
       </Main>
     </Container>
