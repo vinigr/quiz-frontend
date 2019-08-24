@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Rubik", sans-serif;
+  width: 100%;
   h2 {
     font-size: 16px;
     margin-bottom: 6px;

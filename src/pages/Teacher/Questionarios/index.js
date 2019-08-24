@@ -2,29 +2,21 @@ import React, { useState, useEffect } from "react";
 
 import { Container, LinkQuiz, Add } from "./styles";
 
-import api from "../../../../../service/api";
+import api from "../../../service/api";
 
-export default function List(props) {
+export default function Questionarios(props) {
   const [quizzesAvailable, setQuizzesAvailable] = useState([]);
   const [quizzesNotAvailable, setQuizzesNotAvailable] = useState([]);
 
   useEffect(() => {
-    document.title = "Questionários";
-
-    async function buscaBanco() {
-      try {
-        const listQuiz = await api.get(
-          `/subjectQuizList/${props.match.params.id}`
-        );
-        setQuizzesAvailable(listQuiz.data.available);
-        setQuizzesNotAvailable(listQuiz.data.notAvailable);
-      } catch (error) {
-        console.log(error.response);
-      }
+    async function fetchData() {
+      const { data } = await api.get("/allQuizzesTeacher");
+      setQuizzesAvailable(data.available);
+      setQuizzesNotAvailable(data.notAvailable);
     }
-    buscaBanco();
-  }, [props.match.params.id]);
 
+    fetchData();
+  }, []);
   return (
     <Container>
       {quizzesAvailable.length + quizzesNotAvailable.length === 0 && (
@@ -37,7 +29,7 @@ export default function List(props) {
             <LinkQuiz
               key={quiz.id}
               to={{
-                pathname: `${props.match.url}/q/${quiz.id}`,
+                pathname: `${props.match.url}/${quiz.id}`,
                 state: {
                   quiz
                 }
@@ -51,11 +43,12 @@ export default function List(props) {
       {quizzesNotAvailable.length !== 0 && (
         <ul>
           <h2>Expirados</h2>
+          {console.log(props)}
           {quizzesNotAvailable.map(quiz => (
             <li key={quiz.id}>
               <LinkQuiz
                 to={{
-                  pathname: `${props.match.url}/q/${quiz.id}`,
+                  pathname: `${props.match.url}/${quiz.id}`,
                   state: {
                     quiz
                   }
@@ -67,7 +60,6 @@ export default function List(props) {
           ))}
         </ul>
       )}
-      <Add to={`${props.match.url}/new`}>Adicionar</Add>
     </Container>
   );
 }
