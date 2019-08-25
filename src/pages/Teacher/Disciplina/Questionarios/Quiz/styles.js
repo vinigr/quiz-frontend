@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  width: 100%;
 
   div.quiz-info {
     width: calc(80vw - 20px);
@@ -27,6 +27,13 @@ export const Container = styled.div`
 
   div.questions {
     width: 80vw;
+
+    h5 {
+      font-family: "Rubik", sans-serif;
+      font-weight: 500;
+      margin-top: 10px;
+      font-size: 16px;
+    }
   }
 
   div.hits {

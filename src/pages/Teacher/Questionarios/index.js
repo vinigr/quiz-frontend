@@ -43,7 +43,6 @@ export default function Questionarios(props) {
       {quizzesNotAvailable.length !== 0 && (
         <ul>
           <h2>Expirados</h2>
-          {console.log(props)}
           {quizzesNotAvailable.map(quiz => (
             <li key={quiz.id}>
               <LinkQuiz

@@ -32,9 +32,7 @@ const ExpansionPanel = withStyles({
       margin: "auto"
     }
   },
-  expanded: {
-    // width: "100vw"
-  }
+  expanded: {}
 })(MuiExpansionPanel);
 
 const ExpansionPanelSummary = withStyles({
@@ -67,7 +65,7 @@ const ExpansionPanelDetails = withStyles(theme => ({
 }))(MuiExpansionPanelDetails);
 
 export default function Quiz(props) {
-  const [expanded, setExpanded] = useState();
+  const [expanded, setExpanded] = useState(1);
   const [questions, setQuestions] = useState([]);
   const [questionsAnswered, setQuestionsAnswered] = useState([]);
   const [countDisputes, setCountDisputes] = useState([]);
@@ -81,7 +79,6 @@ export default function Quiz(props) {
       try {
         const quizId = props.match.params.id;
         const { data } = await api.get(`/statusQuiz/${quizId}`);
-        console.log(data);
         setQuestions(data.questions);
         setQuestionsAnswered(data.questionsAnswered);
         setCountDisputes(data.disputes);
@@ -93,7 +90,7 @@ export default function Quiz(props) {
     fetchData();
   }, [props.match.params]);
 
-  function renderOptions(question) {
+  function renderOptions(question, questionId) {
     const arrayOptions = [];
     arrayOptions.push(
       question.option1,
@@ -111,13 +108,41 @@ export default function Quiz(props) {
         option !== null && (
           <DivOption key={index} position={index} answer={question.answer}>
             <Typography>{option}</Typography>
+            <div>
+              <h4>
+                {
+                  questionsAnswered.filter(answered => {
+                    return (
+                      answered.question_id === questionId &&
+                      parseInt(answered.selectedAnswer) === index
+                    );
+                  }).length
+                }
+              </h4>
+              <h4>
+                {questionsAnswered.filter(answered => {
+                  return answered.question_id === questionId;
+                }).length &&
+                  (questionsAnswered.filter(answered => {
+                    return (
+                      answered.question_id === questionId &&
+                      parseInt(answered.selectedAnswer) === index
+                    );
+                  }).length /
+                    questionsAnswered.filter(answered => {
+                      return answered.question_id === questionId;
+                    }).length) *
+                    100}
+                %
+              </h4>
+            </div>
           </DivOption>
         )
     );
   }
 
   const { quiz } = props.location.state;
-  console.log(quiz);
+
   return (
     <Container>
       <div className="quiz-info">
@@ -159,6 +184,22 @@ export default function Quiz(props) {
                     }).length
                   }
                 </Typography>
+                <h5>
+                  {questionsAnswered.filter(answered => {
+                    return answered.question_id === question.id;
+                  }).length &&
+                    (questionsAnswered.filter(answered => {
+                      return (
+                        answered.question_id === question.id &&
+                        answered.result === "hit"
+                      );
+                    }).length /
+                      questionsAnswered.filter(answered => {
+                        return answered.question_id === question.id;
+                      }).length) *
+                      100}
+                  %
+                </h5>
               </div>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails
@@ -180,7 +221,7 @@ export default function Quiz(props) {
               )}
               <DivOptions>
                 {question.meQuestion ? (
-                  renderOptions(question.meQuestion)
+                  renderOptions(question.meQuestion, question.id)
                 ) : (
                   <DivAnswer answer={question.tfQuestion.answer}>
                     <Typography>
@@ -189,6 +230,22 @@ export default function Quiz(props) {
                   </DivAnswer>
                 )}
               </DivOptions>
+              <h5>
+                {questionsAnswered.filter(answered => {
+                  return answered.question_id === question.id;
+                }).length &&
+                  (questionsAnswered.filter(answered => {
+                    return (
+                      answered.question_id === question.id &&
+                      answered.result === "skip"
+                    );
+                  }).length /
+                    questionsAnswered.filter(answered => {
+                      return answered.question_id === question.id;
+                    }).length) *
+                    100}
+                % pularam
+              </h5>
             </ExpansionPanelDetails>
           </ExpansionPanel>
         ))}

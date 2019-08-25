@@ -126,11 +126,25 @@ export const DivOptions = styled.div`
 `;
 
 export const DivOption = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   margin: 10px 0;
   border-radius: 4px;
   background-color: ${props =>
     props.answer === props.position ? "#37996b" : "#DDDDDD"};
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h4 {
+      font-family: "Rubik";
+      font-weight: 500;
+    }
+  }
 
   p {
     font-weight: 400;
