@@ -65,7 +65,7 @@ const ExpansionPanelDetails = withStyles(theme => ({
 }))(MuiExpansionPanelDetails);
 
 export default function Quiz(props) {
-  const [expanded, setExpanded] = useState(1);
+  const [expanded, setExpanded] = useState();
   const [questions, setQuestions] = useState([]);
   const [questionsAnswered, setQuestionsAnswered] = useState([]);
   const [countDisputes, setCountDisputes] = useState([]);

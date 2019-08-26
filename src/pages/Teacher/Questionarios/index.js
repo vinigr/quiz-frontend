@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Container, LinkQuiz, Add } from "./styles";
+import { Container, LinkQuiz } from "./styles";
 
 import api from "../../../service/api";
 
