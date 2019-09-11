@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { DotsVerticalRounded } from "styled-icons/boxicons-regular/DotsVerticalRounded";
+import { device } from "../../utils/devices";
 
 export const Container = styled.div``;
 
@@ -17,6 +18,15 @@ export const LinkDisciplina = styled(NavLink)`
 
   &:hover {
     box-shadow: 0 2px 0.15em #9f9f9f;
+  }
+
+  @media (max-width: 650px) {
+    margin-right: 0;
+    width: 80%;
+  }
+
+  @media (max-width: ${device.mobileL}) {
+    width: 90%;
   }
 `;
 

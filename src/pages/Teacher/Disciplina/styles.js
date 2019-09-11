@@ -9,6 +9,10 @@ export const Container = styled.div`
     padding-top: 10px;
   }
 
+  @media (max-width: 480px) {
+    margin-top: 60px;
+  }
+
   @media (max-width: ${device.mobileL}) {
     width: calc(100% - 20px);
     padding: 10px;
