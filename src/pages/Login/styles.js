@@ -8,9 +8,11 @@ import { EyeClosed } from "styled-icons/octicons/EyeClosed";
 
 import { Link } from "react-router-dom";
 
+import { device } from "../../utils/devices";
+
 export const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   font-family: "Rubik", sans-serif;
 `;
 
@@ -48,6 +50,11 @@ export const NomeSite = styled.h1`
 export const Conteudo = styled.main`
   display: flex;
   height: 100vh;
+
+  @media (max-width: 580px) {
+    flex-direction: column;
+    height: 100%;
+  }
 `;
 
 export const SectionForm = styled.section`
@@ -57,6 +64,11 @@ export const SectionForm = styled.section`
   align-items: center;
   padding: 40px;
   justify-content: center;
+
+  @media (max-width: 580px) {
+    width: calc(100% - 80px);
+    height: calc(100vh - 40px);
+  }
 `;
 
 export const Title = styled.h2`
@@ -117,6 +129,14 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 780px) {
+    width: 80%;
+  }
+
+  @media (max-width: 560px) {
+    width: 100%;
+  }
 `;
 
 const DivInput = `
@@ -128,6 +148,14 @@ const DivInput = `
   margin-bottom: 14px;
   align-items: center;
   padding: 4px 6px;
+
+  @media (max-width: ${device.laptop}) {
+    width: 100%;
+  }
+
+  @media (max-width: 580px) {
+    width: 90%;
+  }
 `;
 
 export const Input = styled.input`
@@ -218,6 +246,14 @@ export const BotaoEntrar = styled.button`
   &:hover {
     opacity: 0.8;
   }
+
+  @media (max-width: ${device.laptop}) {
+    width: 40%;
+  }
+
+  @media (max-width: 580px) {
+    width: 30%;
+  }
 `;
 
 export const DivInfo = styled.div`
@@ -230,12 +266,20 @@ export const DivInfo = styled.div`
   align-items: center;
   justify-content: center;
   color: #fff;
+
+  @media (max-width: 580px) {
+    width: calc(100% - 80px);
+  }
 `;
 
 export const TitleInfo = styled.h2`
   font-weight: 600;
   font-size: 36px;
   margin: 0 0 10px;
+
+  @media (max-width: 780px) {
+    text-align: center;
+  }
 `;
 
 export const TextInfo = styled.h3`

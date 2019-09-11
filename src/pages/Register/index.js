@@ -23,7 +23,6 @@ import {
   IconEyeClosed,
   Input,
   TextError,
-  DivInfo,
   TitleInfo,
   TextInfo,
   LinkCadastro
@@ -34,7 +33,8 @@ import {
   TypeUser,
   InputUser,
   LabelUser,
-  TextUser
+  TextUser,
+  DivInfo
 } from "./styles";
 
 import logo from "../../assets/img/logo-branca.png";

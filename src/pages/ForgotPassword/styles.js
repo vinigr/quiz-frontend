@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { device } from "../../utils/devices";
+
 export const Header = styled.header`
   display: flex;
   align-items: center;
@@ -19,12 +21,25 @@ export const Section = styled.section`
   align-items: center;
   padding: 40px;
   justify-content: center;
+
+  @media (max-width: 580px) {
+    width: calc(100% - 80px);
+  }
+
+  @media (max-width: 580px) {
+    margin-top: 20vh;
+  }
 `;
 
 export const Title = styled.h2`
   font-size: 32px;
   color: #059451;
   margin-bottom: 10px;
+  text-align: center;
+
+  @media (max-width: ${device.mobileL}) {
+    font-size: 26px;
+  }
 `;
 
 export const Form = styled.form`
@@ -32,6 +47,22 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: ${device.laptop}) {
+    width: 60%;
+  }
+
+  @media (max-width: ${device.tablet}) {
+    width: 70%;
+  }
+
+  @media (max-width: 580px) {
+    width: 80%;
+  }
+
+  @media (max-width: ${device.mobileL}) {
+    width: 100%;
+  }
 `;
 
 export const DivEmail = styled.div`
@@ -46,6 +77,10 @@ export const DivEmail = styled.div`
 
   &:focus-within {
     border: 1px solid #151515;
+  }
+
+  @media (max-width: 580px) {
+    width: 80%;
   }
 `;
 

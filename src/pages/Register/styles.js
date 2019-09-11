@@ -48,3 +48,21 @@ export const BotaoCadastrar = styled.button`
     opacity: 0.8;
   }
 `;
+
+export const DivInfo = styled.div`
+  background-color: #059451;
+  height: calc(100vh - 30px);
+  width: 35vw;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+  @media (max-width: 580px) {
+    width: calc(100% - 80px);
+    height: 200px;
+    padding-top: 80px;
+  }
+`;
