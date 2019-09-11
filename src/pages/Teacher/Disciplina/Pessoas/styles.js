@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../../../utils/devices";
 
 export const Container = styled.div`
   display: flex;
@@ -13,6 +14,22 @@ export const ListPessoas = styled.ul`
   flex-direction: column;
   padding-left: 5px;
   width: 70%;
+
+  @media (max-width: ${device.laptop}) {
+    width: 80%;
+  }
+
+  @media (max-width: 680px) {
+    width: 90%;
+  }
+
+  @media (max-width: ${device.mobileL}) {
+    width: 95%;
+  }
+
+  @media (max-width: ${device.mobileM}) {
+    width: 98%;
+  }
 `;
 
 export const Title = styled.h2`

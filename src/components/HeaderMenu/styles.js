@@ -64,6 +64,10 @@ export const OpcaoDisciplina = styled(NavLink)`
     background-color: #8ebe91;
     border-bottom: 3px solid #015407;
   }
+
+  @media (max-width: 460px) {
+    display: none;
+  }
 `;
 
 export const NomeOpcao = styled.h2`

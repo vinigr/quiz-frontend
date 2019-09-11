@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../../../../utils/devices";
 
 export const Container = styled.div`
   display: flex;
@@ -33,6 +34,10 @@ export const Container = styled.div`
       font-weight: 500;
       margin-top: 10px;
       font-size: 16px;
+    }
+
+    @media (max-width: ${device.mobileL}) {
+      width: 90vw;
     }
   }
 

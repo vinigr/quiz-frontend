@@ -4,7 +4,6 @@ import { Container, Nome, ImageProfile, DotsIcon } from "./styles";
 import image from "../../assets/img/default-person.png";
 
 const PlayerItem = ({ player, handleClick }) => {
-  console.log(player);
   return (
     <Container>
       <div>

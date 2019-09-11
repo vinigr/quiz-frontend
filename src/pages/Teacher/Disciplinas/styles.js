@@ -2,12 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 0 10px;
+  width: calc(100vw - 20px);
 `;
 
 export const ListaDisciplinas = styled.ul`
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const TitleForm = styled.h2`

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { device } from "../../../../../utils/devices";
 
 export const Container = styled.div`
   display: flex;
@@ -16,6 +17,22 @@ export const Container = styled.div`
     width: 70%;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: ${device.laptop}) {
+      width: 80%;
+    }
+
+    @media (max-width: 680px) {
+      width: 90%;
+    }
+
+    @media (max-width: ${device.mobileL}) {
+      width: 95%;
+    }
+
+    @media (max-width: ${device.mobileM}) {
+      width: 98%;
+    }
   }
 `;
 
