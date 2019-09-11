@@ -6,7 +6,6 @@ import {
   DivLogoMenu,
   IconMenu,
   AppLogo,
-  OpcoesDisciplina,
   OpcaoDisciplina,
   NomeOpcao,
   IconNotificacoes,
@@ -62,14 +61,43 @@ export default function HeaderMenu(props) {
   );
 
   return (
-    <Header>
-      <DivLogoMenu>
-        <IconMenu onClick={toggleDrawer("left", true)} />
-        <AppLogo src={logo} />
-      </DivLogoMenu>
-
+    <Header location={(location[2] === "d") & !isNaN(location[3])}>
+      <div className="top">
+        <DivLogoMenu>
+          <IconMenu onClick={toggleDrawer("left", true)} />
+          <AppLogo src={logo} />
+        </DivLogoMenu>
+        {(location[2] === "d") & !isNaN(location[3]) ? (
+          <div className="options options-top">
+            <OpcaoDisciplina exact to={`/t/d/${location[3]}/`}>
+              <NomeOpcao>Mural</NomeOpcao>
+            </OpcaoDisciplina>
+            <OpcaoDisciplina exact to={`/t/d/${location[3]}/p`}>
+              <NomeOpcao>Pessoas</NomeOpcao>
+            </OpcaoDisciplina>
+            <OpcaoDisciplina exact to={`/t/d/${location[3]}/q`}>
+              <NomeOpcao>Questionários</NomeOpcao>
+            </OpcaoDisciplina>
+          </div>
+        ) : (
+          <></>
+        )}
+        <IconsFinal>
+          <BadgeIcon color="primary" variant="dot" invisible={invisible}>
+            <IconNotificacoes />
+          </BadgeIcon>
+          <IconExit onClick={() => AuthService.logout(props)} />
+        </IconsFinal>
+        <SwipeableDrawer
+          open={state.left}
+          onClose={toggleDrawer("left", false)}
+          onOpen={toggleDrawer("left", true)}
+        >
+          {sideList("left")}
+        </SwipeableDrawer>
+      </div>
       {(location[2] === "d") & !isNaN(location[3]) ? (
-        <OpcoesDisciplina>
+        <div className="options options-bottom">
           <OpcaoDisciplina exact to={`/t/d/${location[3]}/`}>
             <NomeOpcao>Mural</NomeOpcao>
           </OpcaoDisciplina>
@@ -79,23 +107,10 @@ export default function HeaderMenu(props) {
           <OpcaoDisciplina exact to={`/t/d/${location[3]}/q`}>
             <NomeOpcao>Questionários</NomeOpcao>
           </OpcaoDisciplina>
-        </OpcoesDisciplina>
+        </div>
       ) : (
         <></>
       )}
-      <IconsFinal>
-        <BadgeIcon color="primary" variant="dot" invisible={invisible}>
-          <IconNotificacoes />
-        </BadgeIcon>
-        <IconExit onClick={() => AuthService.logout(props)} />
-      </IconsFinal>
-      <SwipeableDrawer
-        open={state.left}
-        onClose={toggleDrawer("left", false)}
-        onOpen={toggleDrawer("left", true)}
-      >
-        {sideList("left")}
-      </SwipeableDrawer>
     </Header>
   );
 }

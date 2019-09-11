@@ -10,12 +10,42 @@ export const Header = styled.header`
   background-color: #fff;
   padding: 0 20px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-bottom: solid 0.05em #e8e8e8;
   position: fixed;
   width: calc(100vw - 40px);
   z-index: 5;
+
+  div.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  div.options {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  div.options-bottom {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    height: ${props => (props.location ? "120px" : "60px")};
+    align-items: center;
+
+    div.options-top {
+      display: none;
+    }
+
+    div.options-bottom {
+      display: flex;
+    }
+  }
 `;
 
 const Icon = `
@@ -43,12 +73,6 @@ export const IconNotificacoes = styled(Notifications)`
   ${Icon};
 `;
 
-export const OpcoesDisciplina = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-`;
-
 export const OpcaoDisciplina = styled(NavLink)`
   padding: 0 16px;
   height: 100%;
@@ -56,6 +80,8 @@ export const OpcaoDisciplina = styled(NavLink)`
   text-decoration: none;
   display: flex;
   align-items: center;
+  border-radius: 4px 4px 0 0;
+
   &:hover {
     background-color: #dbdbdb;
   }
@@ -63,10 +89,6 @@ export const OpcaoDisciplina = styled(NavLink)`
   &[aria-current] {
     background-color: #8ebe91;
     border-bottom: 3px solid #015407;
-  }
-
-  @media (max-width: 460px) {
-    display: none;
   }
 `;
 
