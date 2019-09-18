@@ -22,6 +22,10 @@ export const DivUpload = styled.div`
   cursor: pointer;
   width: 60%;
   margin-bottom: 20px;
+
+  @media (max-width: 460px) {
+    width: 80%;
+  }
 `;
 
 export const DivImage = styled.div`
@@ -54,6 +58,14 @@ export const AreaPergunta = styled.textarea`
   background-color: #f8f8f8;
   padding: 5px;
   box-shadow: 0 0.01em 0 #9f9f9f;
+
+  @media (max-width: 680px) {
+    width: 90%;
+  }
+
+  @media (max-width: 460px) {
+    width: 100%;
+  }
 `;
 
 export const IconImage = styled(ImageAdd)`
@@ -68,7 +80,7 @@ export const InputRadio = styled.input`
 export const LabelOption = styled.label`
   display: flex;
   align-items: center;
-  padding: 5px 10px;
+  padding: 5px 8px;
   justify-content: space-around;
   border-radius: 4px;
   cursor: pointer;
@@ -86,6 +98,18 @@ export const DivOptions = styled.div`
   flex-direction: column;
   width: 60%;
   margin-bottom: 24px;
+
+  @media (max-width: 1024px) {
+    width: 70%;
+  }
+
+  @media (max-width: 680px) {
+    width: 90%;
+  }
+
+  @media (max-width: 460px) {
+    width: 100%;
+  }
 `;
 
 export const DivOption = styled.div`
@@ -115,6 +139,14 @@ export const AreaExplication = styled.textarea`
   box-shadow: 0 0.01em 0 #9f9f9f;
   height: 60px;
   margin-bottom: 20px;
+
+  @media (max-width: 760px) {
+    width: 66%;
+  }
+
+  @media (max-width: 560px) {
+    width: 80%;
+  }
 `;
 
 export const TextError = styled.h4`

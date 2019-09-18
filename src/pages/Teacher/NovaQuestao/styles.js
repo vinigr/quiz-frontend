@@ -24,6 +24,11 @@ export const Title = styled.h2`
 export const DivOptions = styled.div`
   display: flex;
   margin-top: 20px;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    width: 60%;
+  }
 `;
 
 export const Option = styled(NavLink)`
@@ -33,6 +38,10 @@ export const Option = styled(NavLink)`
 
   &[aria-current] {
     border: 0.15em solid #015407;
+  }
+
+  @media (max-width: 425px) {
+    margin: 10px 0;
   }
 `;
 
