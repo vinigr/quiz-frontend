@@ -9,6 +9,7 @@ export default function Questionarios(props) {
   const [quizzesNotAvailable, setQuizzesNotAvailable] = useState([]);
 
   useEffect(() => {
+    document.title = "Questionários";
     async function fetchData() {
       const { data } = await api.get("/allQuizzesTeacher");
       setQuizzesAvailable(data.available);
