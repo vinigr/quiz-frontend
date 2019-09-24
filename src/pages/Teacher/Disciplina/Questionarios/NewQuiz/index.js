@@ -6,6 +6,8 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
+import Switch from "@material-ui/core/Switch";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 import pt from "date-fns/locale/pt";
 import isAfter from "date-fns/is_after";
@@ -37,6 +39,7 @@ const useStyles = makeStyles(theme => ({
 export default function NewQuiz(props) {
   const classes = useStyles();
   const [name, setName] = useState("");
+  const [hasCode, setHasCode] = useState(true);
   const [releasedDate, setReleasedtDate] = useState(new Date());
   const [expirationDate, setExpirationDate] = useState();
   const [questions, setQuestions] = useState([]);
@@ -133,7 +136,8 @@ export default function NewQuiz(props) {
         selectedQuestionsME,
         selectedQuestionsTF,
         feedbackAnswer,
-        subjectId: props.match.params.id
+        subjectId: props.match.params.id,
+        hasCode
       });
 
       return props.history.goBack();
@@ -173,6 +177,19 @@ export default function NewQuiz(props) {
         placeholder="Nome"
         value={name}
         onChange={e => setName(e.target.value)}
+      />
+      <FormControlLabel
+        style={{ flexDirection: "row-reverse" }}
+        control={
+          <Switch
+            checked={hasCode}
+            onChange={() => setHasCode(!hasCode)}
+            value="hasCode"
+            color="primary"
+          />
+        }
+        label="Gerar código"
+        labelPlacement="start"
       />
       <label>
         Data de liberação:
@@ -236,7 +253,7 @@ export default function NewQuiz(props) {
           </select>
         </div>
       </div>
-      <span>
+      <span className="details">
         {selectedQuestionsME.length + selectedQuestionsTF.length !== 0 &&
           `${selectedQuestionsME.length +
             selectedQuestionsTF.length} selecionada(s)`}
@@ -270,12 +287,16 @@ export default function NewQuiz(props) {
                 <DivOptions>{renderOptions(question)}</DivOptions>
                 <Dates>
                   <div>
-                    <span>Data de criação</span>
-                    <span>{format(question.createdAt, "DD/MM/YYYY")}</span>
+                    <span className="details">Data de criação</span>
+                    <span className="details">
+                      {format(question.createdAt, "DD/MM/YYYY")}
+                    </span>
                   </div>
                   <div>
-                    <span>Data de atualização</span>
-                    <span>{format(question.updatedAt, "DD/MM/YYYY")}</span>
+                    <span className="details">Data de atualização</span>
+                    <span className="details">
+                      {format(question.updatedAt, "DD/MM/YYYY")}
+                    </span>
                   </div>
                 </Dates>
                 <div className="button">
@@ -337,12 +358,16 @@ export default function NewQuiz(props) {
                 </DivOptions>
                 <Dates>
                   <div>
-                    <span>Data de criação</span>
-                    <span>{format(question.createdAt, "DD/MM/YYYY")}</span>
+                    <span className="details">Data de criação</span>
+                    <span className="details">
+                      {format(question.createdAt, "DD/MM/YYYY")}
+                    </span>
                   </div>
                   <div>
-                    <span>Data de atualização</span>
-                    <span>{format(question.updatedAt, "DD/MM/YYYY")}</span>
+                    <span className="details">Data de atualização</span>
+                    <span className="details">
+                      {format(question.updatedAt, "DD/MM/YYYY")}
+                    </span>
                   </div>
                 </Dates>
                 <div className="button">

@@ -63,7 +63,7 @@ export const Container = styled.div`
     margin: 10px 0;
   }
 
-  span {
+  span.details {
     font-weight: 500;
     color: #616a6b;
     margin: 5px 0;
