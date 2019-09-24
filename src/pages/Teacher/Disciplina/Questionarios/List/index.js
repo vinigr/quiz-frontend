@@ -43,7 +43,10 @@ export default function List(props) {
                 }
               }}
             >
-              <li>{quiz.name}</li>
+              <li>
+                <h3>{quiz.name}</h3>
+                <h3>{quiz.accessCode}</h3>
+              </li>
             </LinkQuiz>
           ))}
         </ul>

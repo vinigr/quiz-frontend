@@ -51,6 +51,15 @@ export const LinkQuiz = styled(Link)`
   li {
     width: 100%;
     font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  h3:last-child {
+    font-size: 14px;
   }
 
   &:hover {
