@@ -3,6 +3,7 @@ import GlobalStyle from "./styles/global";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import {
   Home,
+  Confirmation,
   Login,
   Register,
   Player,
@@ -69,6 +70,7 @@ const App = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/confirmation/:token" component={Confirmation} />
       <AccessRoute path="/login" component={props => <Login {...props} />} />
       <AccessRoute
         path="/register"
