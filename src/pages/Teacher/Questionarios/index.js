@@ -36,7 +36,10 @@ export default function Questionarios(props) {
                 }
               }}
             >
-              <li>{quiz.name}</li>
+              <li>
+                <h3>{quiz.name}</h3>
+                <h3>{quiz.accessCode}</h3>
+              </li>
             </LinkQuiz>
           ))}
         </ul>
@@ -54,7 +57,8 @@ export default function Questionarios(props) {
                   }
                 }}
               >
-                {quiz.name}
+                <h3>{quiz.name}</h3>
+                <h3>{quiz.accessCode}</h3>
               </LinkQuiz>
             </li>
           ))}

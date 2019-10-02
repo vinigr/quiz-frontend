@@ -55,18 +55,19 @@ export default function List(props) {
         <ul>
           <h2>Expirados</h2>
           {quizzesNotAvailable.map(quiz => (
-            <li key={quiz.id}>
-              <LinkQuiz
-                to={{
-                  pathname: `${props.match.url}/q/${quiz.id}`,
-                  state: {
-                    quiz
-                  }
-                }}
-              >
-                {quiz.name}
-              </LinkQuiz>
-            </li>
+            <LinkQuiz
+              to={{
+                pathname: `${props.match.url}/q/${quiz.id}`,
+                state: {
+                  quiz
+                }
+              }}
+            >
+              <li key={quiz.id}>
+                <h3>{quiz.name}</h3>
+                <h3>{quiz.accessCode}</h3>
+              </li>
+            </LinkQuiz>
           ))}
         </ul>
       )}
