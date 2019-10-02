@@ -89,6 +89,7 @@ export default function Disciplinas() {
     } catch (err) {
       console.log(err);
     }
+    handleClose();
   }
 
   async function editarDisciplina() {
