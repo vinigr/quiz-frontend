@@ -20,6 +20,7 @@ export default function Disciplinas() {
   const [openModal, setOpenModal] = useState(false);
   const [name, setName] = useState("");
   const [topic, setTopic] = useState("");
+  const [edit, setEdit] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [disciplinaMenu, setDisciplinaMenu] = useState(null);
 
@@ -53,6 +54,13 @@ export default function Disciplinas() {
     setOpenModal(true);
   }
 
+  function closeModal() {
+    setOpenModal(false);
+    setEdit(false);
+    setName("");
+    setTopic("");
+  }
+
   async function cadastrarDisciplina(e) {
     e.preventDefault();
 
@@ -81,8 +89,52 @@ export default function Disciplinas() {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  async function editarDisciplina() {
+    if (!disciplinaMenu) {
+      return handleClose();
+    }
+
+    try {
+      await setEdit(true);
+      const subject = subjects.filter(subject => subject.id === disciplinaMenu);
+      setName(subject[0].name);
+      setTopic(subject[0].topic);
+      handleModal();
+    } catch (err) {
+      console.log(err);
+    }
 
     handleClose();
+  }
+
+  async function updateDisciplina() {
+    function isElement(subject) {
+      return subject.id === disciplinaMenu;
+    }
+
+    const subjectIndex = subjects.findIndex(isElement);
+
+    try {
+      await api.put("/subject/update", {
+        id: disciplinaMenu,
+        name,
+        topic
+      });
+      subjects.splice(subjectIndex, 1, {
+        id: disciplinaMenu,
+        name,
+        topic
+      });
+    } catch ({ response }) {
+      console.log(response.data.message);
+    }
+
+    setName("");
+    setTopic("");
+    setEdit(false);
+    setOpenModal(false);
   }
 
   function handleClick(e, id) {
@@ -100,7 +152,7 @@ export default function Disciplinas() {
       <BotaoAdicionar handleModal={handleModal} />
       <Dialog
         open={openModal}
-        onClose={() => setOpenModal(false)}
+        onClose={closeModal}
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">Disciplina</DialogTitle>
@@ -123,18 +175,25 @@ export default function Disciplinas() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpenModal(false)} color="inherit">
+          <Button onClick={closeModal} color="inherit">
             Cancelar
           </Button>
-          <Button onClick={e => cadastrarDisciplina(e)} color="inherit">
-            Cadastrar
-          </Button>
+          {!edit ? (
+            <Button onClick={e => cadastrarDisciplina(e)} color="inherit">
+              Cadastrar
+            </Button>
+          ) : (
+            <Button onClick={e => updateDisciplina(e)} color="inherit">
+              Atualizar
+            </Button>
+          )}
         </DialogActions>
       </Dialog>
       <MenuDisciplina
         handleClose={handleClose}
         anchorEl={anchorEl}
         excluirDisciplina={excluirDisciplina}
+        editarDisciplina={editarDisciplina}
       />
     </div>
   );
