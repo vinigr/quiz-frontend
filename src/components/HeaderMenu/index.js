@@ -8,10 +8,7 @@ import {
   AppLogo,
   OpcaoDisciplina,
   NomeOpcao,
-  IconNotificacoes,
-  IconExit,
-  IconsFinal,
-  BadgeIcon
+  IconExit
 } from "./styles";
 
 import SideMenu from "../SideMenu";
@@ -27,7 +24,6 @@ const useStyles = makeStyles({
 export default function HeaderMenu(props) {
   const classes = useStyles();
   const [location, setLocation] = useState([]);
-  const [invisible] = useState(false);
   const [state, setState] = useState({
     left: false
   });
@@ -82,12 +78,7 @@ export default function HeaderMenu(props) {
         ) : (
           <></>
         )}
-        <IconsFinal>
-          <BadgeIcon color="primary" variant="dot" invisible={invisible}>
-            <IconNotificacoes />
-          </BadgeIcon>
-          <IconExit onClick={() => AuthService.logout(props)} />
-        </IconsFinal>
+        <IconExit onClick={() => AuthService.logout(props)} />
         <SwipeableDrawer
           open={state.left}
           onClose={toggleDrawer("left", false)}
