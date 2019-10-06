@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 
 import { Container, ListaDisciplinas, Input } from "./styles";
 
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle
+} from "@material-ui/core";
 
 import DisciplinaItem from "../../../components/DisciplinaItem";
 import BotaoAdicionar from "../../../components/BotaoAdicionar";
@@ -126,7 +128,8 @@ export default function Disciplinas() {
       subjects.splice(subjectIndex, 1, {
         id: disciplinaMenu,
         name,
-        topic
+        topic,
+        accessCode: subjects[subjectIndex].accessCode
       });
     } catch ({ response }) {
       console.log(response.data.message);
