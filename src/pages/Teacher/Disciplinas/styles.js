@@ -41,7 +41,7 @@ export const Input = styled.input`
   border-radius: 3px;
   background-color: #f0f0f0;
   margin-bottom: 10px;
-  width: 400px;
+  width: calc(100% - 10px);
   padding: 0 5px;
 `;
 
