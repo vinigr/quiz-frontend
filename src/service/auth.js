@@ -38,6 +38,10 @@ const AuthService = {
 
   getRole() {
     return this.getProfile().role;
+  },
+
+  getName() {
+    return this.getProfile().name;
   }
 };
 
