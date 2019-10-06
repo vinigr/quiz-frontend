@@ -7,14 +7,13 @@ import {
   IconMenu,
   AppLogo,
   OpcaoDisciplina,
-  NomeOpcao,
-  IconExit
+  NomeOpcao
 } from "./styles";
 
 import SideMenu from "../SideMenu";
+import Avatar from "../Avatar";
 import logo from "../../assets/img/logo-verde.png";
 
-import AuthService from "../../service/auth";
 const useStyles = makeStyles({
   list: {
     width: 250
@@ -78,7 +77,7 @@ export default function HeaderMenu(props) {
         ) : (
           <></>
         )}
-        <IconExit onClick={() => AuthService.logout(props)} />
+        <Avatar />
         <SwipeableDrawer
           open={state.left}
           onClose={toggleDrawer("left", false)}
