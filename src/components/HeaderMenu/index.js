@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import { SwipeableDrawer, Menu, MenuItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Header,
@@ -14,6 +14,8 @@ import SideMenu from "../SideMenu";
 import Avatar from "../Avatar";
 import logo from "../../assets/img/logo-verde.png";
 
+import AuthService from "../../service/auth";
+
 const useStyles = makeStyles({
   list: {
     width: 250
@@ -26,6 +28,7 @@ export default function HeaderMenu(props) {
   const [state, setState] = useState({
     left: false
   });
+  const [anchorEl, setAnchorEl] = useState(null);
 
   useEffect(() => {
     const { pathname } = props.location;
@@ -55,6 +58,14 @@ export default function HeaderMenu(props) {
     </div>
   );
 
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <Header location={(location[2] === "d") & !isNaN(location[3])}>
       <div className="top">
@@ -77,7 +88,7 @@ export default function HeaderMenu(props) {
         ) : (
           <></>
         )}
-        <Avatar />
+        <Avatar handleClick={handleClick} />
         <SwipeableDrawer
           open={state.left}
           onClose={toggleDrawer("left", false)}
@@ -101,6 +112,16 @@ export default function HeaderMenu(props) {
       ) : (
         <></>
       )}
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}>Perfil</MenuItem>
+        <MenuItem onClick={() => AuthService.logout(props)}>Sair</MenuItem>
+      </Menu>
     </Header>
   );
 }

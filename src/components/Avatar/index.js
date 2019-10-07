@@ -11,11 +11,11 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Avatar(props) {
+export default function Avatar({ handleClick }) {
   const classes = useStyles();
 
   return (
-    <AvatarProfile className={classes.purpleAvatar}>
+    <AvatarProfile className={classes.purpleAvatar} onClick={handleClick}>
       {AuthService.getName().substring(0, 1)}
     </AvatarProfile>
   );
