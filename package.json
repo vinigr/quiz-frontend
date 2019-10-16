@@ -14,6 +14,7 @@
     "react-icons": "^3.7.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "recharts": "^1.8.1",
     "socket.io-client": "^2.2.0",
     "styled-components": "^4.3.2",
     "styled-icons": "^8.4.2",
