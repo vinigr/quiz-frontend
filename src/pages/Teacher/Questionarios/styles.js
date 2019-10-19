@@ -42,8 +42,8 @@ export const LinkQuiz = styled(Link)`
   display: flex;
   justify-content: space-between;
   padding: 16px;
-  background-color: #e3e3e3;
-  border-radius: 6px;
+  background-color: #f5f5f5;
+  border-radius: 2px;
   align-items: center;
   margin-bottom: 8px;
   box-shadow: 0 0.01em 0.1em #3f3f3f;
@@ -64,7 +64,7 @@ export const LinkQuiz = styled(Link)`
   }
 
   &:hover {
-    background-color: #979494;
+    box-shadow: 0px 5px 13px 0px rgba(168, 165, 165, 0.79);
   }
 `;
 

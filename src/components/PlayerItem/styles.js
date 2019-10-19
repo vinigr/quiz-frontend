@@ -5,8 +5,8 @@ export const Container = styled.li`
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background-color: #e3e3e3;
-  border-radius: 6px;
+  background-color: #f0f0f0;
+  border-radius: 2px;
   align-items: center;
   margin-bottom: 8px;
 
