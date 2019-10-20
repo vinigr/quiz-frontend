@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 
+import { Snackbar } from "@material-ui/core";
+
 import {
   Container,
   DivOptions,
@@ -20,6 +22,8 @@ import {
   AreaExplication
 } from "../MultiplaEscolha/styles";
 
+import MySnackbarContentWrapper from "../../../../components/SnackBar";
+
 import api from "../../../../service/api";
 
 export default function TrueOrFalse(props) {
@@ -28,6 +32,8 @@ export default function TrueOrFalse(props) {
   const [answerCorrect, setAnswerCorrect] = useState();
   const [explanation, setExplanation] = useState();
   const [error, setError] = useState(null);
+  const [openSuccess, setOpenSuccess] = useState(false);
+  const [openError, setOpenError] = useState(false);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
@@ -72,12 +78,24 @@ export default function TrueOrFalse(props) {
     data.append("subjectId", subjectId);
 
     try {
-      const resp = await api.post("/questionTf", data);
-      console.log(resp.data);
+      await api.post("/questionTf", data);
+      setOpenSuccess(true);
+      setQuestion("");
+      setImage(null);
+      setAnswerCorrect(null);
+      setExplanation("");
     } catch (err) {
-      console.log(err);
-      // return setError(err.data.message);
+      setOpenError(true);
     }
+  }
+
+  function handleClose(event, reason) {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSuccess(false);
+    setOpenError(false);
   }
 
   return (
@@ -138,6 +156,36 @@ export default function TrueOrFalse(props) {
       />
       {error && <TextError>{error}</TextError>}
       <ButtonCreate onClick={registerQuestion}>Cadastrar questão</ButtonCreate>
+      <Snackbar
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right"
+        }}
+        open={openSuccess}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <MySnackbarContentWrapper
+          onClose={handleClose}
+          variant="success"
+          message="Questão cadastrada com sucesso!"
+        />
+      </Snackbar>
+      <Snackbar
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right"
+        }}
+        open={openError}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <MySnackbarContentWrapper
+          onClose={handleClose}
+          variant="error"
+          message="Erro ao cadastrar questão!"
+        />
+      </Snackbar>
     </Container>
   );
 }

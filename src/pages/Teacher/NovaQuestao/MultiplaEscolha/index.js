@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import { useDropzone } from "react-dropzone";
+
+import { Snackbar } from "@material-ui/core";
+
 import {
   Container,
   DivUpload,
@@ -19,6 +22,8 @@ import {
   TextError,
   ButtonCreate
 } from "./styles";
+
+import MySnackbarContentWrapper from "../../../../components/SnackBar";
 
 import api from "../../../../service/api";
 
@@ -47,6 +52,8 @@ export default function MultiplaEscolha(props) {
   const [answerCorrect, setAnswerCorrect] = useState();
   const [explanation, setExplanation] = useState();
   const [error, setError] = useState(null);
+  const [openSuccess, setOpenSuccess] = useState(false);
+  const [openError, setOpenError] = useState(false);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
@@ -105,11 +112,31 @@ export default function MultiplaEscolha(props) {
     data.append("subjectId", subjectId);
 
     try {
-      const resp = await api.post("/questionMe", data);
-      console.log(resp);
+      await api.post("/questionMe", data);
+      setOpenSuccess(true);
+      setQuestion("");
+      setOptions([
+        {
+          option: ""
+        },
+        {
+          option: ""
+        },
+        {
+          option: ""
+        },
+        {
+          option: ""
+        },
+        {
+          option: ""
+        }
+      ]);
+      setImage(null);
+      setAnswerCorrect(null);
+      setExplanation("");
     } catch (err) {
-      console.log(err);
-      // return setError(err.data.message);
+      setOpenError(true);
     }
   }
 
@@ -118,6 +145,15 @@ export default function MultiplaEscolha(props) {
       URL.revokeObjectURL(image.preview);
     }
   }, [image]);
+
+  function handleClose(event, reason) {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSuccess(false);
+    setOpenError(false);
+  }
 
   return (
     <Container>
@@ -176,6 +212,36 @@ export default function MultiplaEscolha(props) {
       />
       {error && <TextError>{error}</TextError>}
       <ButtonCreate onClick={registerQuestion}>Cadastrar questão</ButtonCreate>
+      <Snackbar
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right"
+        }}
+        open={openSuccess}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <MySnackbarContentWrapper
+          onClose={handleClose}
+          variant="success"
+          message="Questão cadastrada com sucesso!"
+        />
+      </Snackbar>
+      <Snackbar
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right"
+        }}
+        open={openError}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <MySnackbarContentWrapper
+          onClose={handleClose}
+          variant="error"
+          message="Erro ao cadastrar questão!"
+        />
+      </Snackbar>
     </Container>
   );
 }
