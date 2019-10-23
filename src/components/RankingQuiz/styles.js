@@ -16,11 +16,16 @@ export const Container = styled.div`
     color: #fff;
   }
 
+  section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   div#dispute {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    width: 100%;
 
     h4 {
       color: #fff;

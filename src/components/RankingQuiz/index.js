@@ -52,7 +52,7 @@ export default function RankingQuiz(props) {
   return (
     <Container>
       {disputes.length > 0 ? (
-        <>
+        <section>
           {disputes.map(dispute => (
             <div id="dispute" key={dispute.id}>
               {nameVisible &&
@@ -71,7 +71,7 @@ export default function RankingQuiz(props) {
           <button onClick={() => setNameVisible(!nameVisible)}>
             {nameVisible ? "Ocultar nomes" : "Mostrar nomes"}
           </button>
-        </>
+        </section>
       ) : (
         <h3>Nenhuma partida iniciada. Aguarde...</h3>
       )}
