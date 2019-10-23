@@ -7,6 +7,8 @@ import Typography from "@material-ui/core/Typography";
 
 import { Container } from "./styles";
 
+import RankingQuiz from "../../../../../components/RankingQuiz";
+
 import {
   DivOptions,
   DivOption,
@@ -69,6 +71,7 @@ export default function Quiz(props) {
   const [questions, setQuestions] = useState([]);
   const [questionsAnswered, setQuestionsAnswered] = useState([]);
   const [countDisputes, setCountDisputes] = useState([]);
+  const [realTime, setRealTime] = useState(false);
 
   const handleChange = panel => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -149,6 +152,14 @@ export default function Quiz(props) {
         <h2>{quiz.name}</h2>
         <h3>{countDisputes} partidas iniciadas</h3>
       </div>
+      {realTime ? (
+        <RankingQuiz name={quiz.name} total={questions.length} {...props} />
+      ) : (
+        <button id="real-time" onClick={() => setRealTime(true)}>
+          Ativar visualização em tempo real
+        </button>
+      )}
+
       <div className="questions">
         {questions.map((question, index) => (
           <ExpansionPanel

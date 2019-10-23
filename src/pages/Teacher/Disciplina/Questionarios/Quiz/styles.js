@@ -26,6 +26,17 @@ export const Container = styled.div`
     }
   }
 
+  button#real-time {
+    border-radius: 2px;
+    border: none;
+    padding: 6px;
+    margin-bottom: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   div.questions {
     width: 80vw;
 
