@@ -9,7 +9,7 @@ export const Container = styled.div`
   padding: 1px;
 
   .bar {
-    background: linear-gradient(20deg, hsl(96, 60%, 65%), hsl(-209, 64%, 60%));
+    background: #${((Math.random() * 0xffffff) << 0).toString(16)};
     width: ${props => props.percentage};
     height: 40px;
     border-radius: 6px;
