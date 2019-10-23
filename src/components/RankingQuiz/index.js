@@ -52,24 +52,26 @@ export default function RankingQuiz(props) {
   return (
     <Container>
       {disputes.length > 0 ? (
-        disputes.map(dispute => (
-          <div id="dispute" key={dispute.id}>
-            {nameVisible &&
-              (dispute.User ? (
-                <h4> {dispute.User.name} </h4>
-              ) : (
-                <h4> {dispute.UnloggedUser.name} </h4>
-              ))}
-            <ProgressBar
-              key={dispute.id}
-              score={dispute.score}
-              total={props.total}
-            />
-            <button onClick={() => setNameVisible(!nameVisible)}>
-              {nameVisible ? "Ocultar nomes" : "Mostrar nomes"}
-            </button>
-          </div>
-        ))
+        <>
+          {disputes.map(dispute => (
+            <div id="dispute" key={dispute.id}>
+              {nameVisible &&
+                (dispute.User ? (
+                  <h4> {dispute.User.name} </h4>
+                ) : (
+                  <h4> {dispute.UnloggedUser.name} </h4>
+                ))}
+              <ProgressBar
+                key={dispute.id}
+                score={dispute.score}
+                total={props.total}
+              />
+            </div>
+          ))}
+          <button onClick={() => setNameVisible(!nameVisible)}>
+            {nameVisible ? "Ocultar nomes" : "Mostrar nomes"}
+          </button>
+        </>
       ) : (
         <h3>Nenhuma partida iniciada. Aguarde...</h3>
       )}
