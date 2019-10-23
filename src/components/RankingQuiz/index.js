@@ -28,7 +28,7 @@ export default function RankingQuiz(props) {
     let io;
 
     function subscribeToEvents() {
-      io = socket("http://localhost:3110");
+      io = socket(process.env.REACT_APP_HOST_SERVER);
       io.on(`quiz${quizId}`, data => {
         const index = disputes.findIndex(dispute => dispute.id === data.id);
 
