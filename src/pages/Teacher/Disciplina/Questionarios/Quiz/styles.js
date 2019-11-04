@@ -1,60 +1,34 @@
 import styled from "styled-components";
-import { device } from "../../../../../utils/devices";
+import { NavLink } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 
-  div.quiz-info {
-    width: calc(80vw - 20px);
+  nav {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: "Rubik", sans-serif;
+    flex-direction: row;
+    margin-bottom: 20px;
+    font-family: "Rubik";
+  }
+`;
 
-    h2 {
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
+export const OpcaoQuiz = styled(NavLink)`
+  padding: 16px;
+  height: 100%;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
 
-    h3 {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
+  &:hover {
+    background-color: #dbdbdb;
   }
 
-  button#real-time {
-    border-radius: 2px;
-    border: none;
-    padding: 6px;
-    margin-bottom: 10px;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  div.questions {
-    width: 80vw;
-
-    h5 {
-      font-family: "Rubik", sans-serif;
-      font-weight: 500;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-
-    @media (max-width: ${device.mobileL}) {
-      width: 90vw;
-    }
-  }
-
-  div.hits {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  &[aria-current] {
+    background-color: #8ebe91;
+    border-bottom: 3px solid #015407;
   }
 `;
