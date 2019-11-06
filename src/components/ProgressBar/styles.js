@@ -9,7 +9,7 @@ export const Container = styled.div`
   padding: 1px;
 
   .bar {
-    background: #${((Math.random() * 0xffffff) << 0).toString(16)};
+    background: #${props => props.color};
     width: ${props => props.percentage};
     height: 40px;
     border-radius: 6px;
