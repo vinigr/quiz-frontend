@@ -9,7 +9,7 @@ export const Container = styled.div`
     padding-top: 10px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 520px) {
     margin-top: 60px;
   }
 
