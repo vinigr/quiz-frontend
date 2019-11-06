@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import { Container, OpcaoQuiz } from "./styles";
 
@@ -17,7 +17,7 @@ export default function Quiz(props) {
             state: { quiz: props.location.state.quiz }
           }}
         >
-          Estatisticas
+          Estatísticas
         </OpcaoQuiz>
         <OpcaoQuiz
           exact

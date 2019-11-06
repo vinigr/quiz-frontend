@@ -14,7 +14,7 @@ export default function List(props) {
     async function buscaBanco() {
       try {
         const listQuiz = await api.get(
-          `/subjectQuizList/${props.match.params.id}`
+          `/allQuizzesSubjectTeacher/${props.match.params.id}`
         );
         setQuizzesAvailable(listQuiz.data.available);
         setQuizzesNotAvailable(listQuiz.data.notAvailable);

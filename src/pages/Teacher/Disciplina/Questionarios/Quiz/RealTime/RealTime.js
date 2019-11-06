@@ -17,9 +17,7 @@ const RealTime = props => {
         const { data } = await api.get(`/infoQuiz/${quizId}`);
         setQuiz(data.quiz.name);
         setQuestions(data.questions);
-      } catch (error) {
-        console.log(error.response.data);
-      }
+      } catch (error) {}
     }
 
     fetchData();

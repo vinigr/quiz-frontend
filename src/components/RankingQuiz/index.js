@@ -16,9 +16,7 @@ export default function RankingQuiz(props) {
       try {
         const { data } = await api.get(`/ranking/${quizId}`);
         setDisputes(data);
-      } catch ({ response }) {
-        console.log(response.data.message);
-      }
+      } catch ({ response }) {}
     }
 
     fetchData();
@@ -64,6 +62,7 @@ export default function RankingQuiz(props) {
               <ProgressBar
                 key={dispute.id}
                 score={dispute.score}
+                color={dispute.color}
                 total={props.total}
               />
             </div>
