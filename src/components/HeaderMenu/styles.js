@@ -33,7 +33,7 @@ export const Header = styled.header`
     display: none;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 520px) {
     flex-direction: column;
     height: ${props => (props.location ? "120px" : "60px")};
     align-items: center;

@@ -81,6 +81,9 @@ export default function HeaderMenu(props) {
             <OpcaoDisciplina exact to={`/t/d/${location[3]}/p`}>
               <NomeOpcao>Pessoas</NomeOpcao>
             </OpcaoDisciplina>
+            <OpcaoDisciplina to={`/t/d/${location[3]}/qt`}>
+              <NomeOpcao>Questões</NomeOpcao>
+            </OpcaoDisciplina>
             <OpcaoDisciplina exact to={`/t/d/${location[3]}/q`}>
               <NomeOpcao>Questionários</NomeOpcao>
             </OpcaoDisciplina>
@@ -104,6 +107,9 @@ export default function HeaderMenu(props) {
           </OpcaoDisciplina>
           <OpcaoDisciplina exact to={`/t/d/${location[3]}/p`}>
             <NomeOpcao>Pessoas</NomeOpcao>
+          </OpcaoDisciplina>
+          <OpcaoDisciplina exact to={`/t/d/${location[3]}/qt`}>
+            <NomeOpcao>Questões</NomeOpcao>
           </OpcaoDisciplina>
           <OpcaoDisciplina exact to={`/t/d/${location[3]}/q`}>
             <NomeOpcao>Questionários</NomeOpcao>
