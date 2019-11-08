@@ -16,7 +16,8 @@ import {
   DivOptions,
   DivOption,
   DivAnswer,
-  Dates
+  Dates,
+  Editar
 } from "./styles";
 import api from "../../../service/api";
 
@@ -32,6 +33,7 @@ const useStyles = makeStyles(theme => ({
 export default function Questoes(props) {
   const classes = useStyles();
   const [questions, setQuestions] = useState([]);
+
   useEffect(() => {
     document.title = "Questões";
     buscaBanco();
@@ -94,6 +96,14 @@ export default function Questoes(props) {
                   </DivImage>
                 )}
                 <DivOptions>{renderOptions(question)}</DivOptions>
+                <Editar
+                  to={{
+                    pathname: `${props.match.path}/new/${question.subjectId}`,
+                    state: question
+                  }}
+                >
+                  Editar
+                </Editar>
                 <Dates>
                   <div>
                     <span>Data de criação</span>
@@ -132,6 +142,14 @@ export default function Questoes(props) {
                     <p>{question.answer ? "Verdadeiro" : "Falso"}</p>
                   </DivAnswer>
                 </DivOptions>
+                <Editar
+                  to={{
+                    pathname: `${props.match.path}/new/tf/${question.subjectId}`,
+                    state: question
+                  }}
+                >
+                  Editar
+                </Editar>
                 <Dates>
                   <div>
                     <span>Data de criação</span>

@@ -110,3 +110,21 @@ export const IconArrow = styled(KeyboardArrowDown)`
   color: #b7b7b7;
   width: 24px;
 `;
+
+export const Editar = styled(Link)`
+  display: flex;
+  height: 40px;
+  border: none;
+  align-self: flex-end;
+  width: 80px;
+  background-color: #95c2e3;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 2px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
