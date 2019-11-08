@@ -26,11 +26,14 @@ export default function NovaQuestao(props) {
     async function buscaBanco() {
       const subject = await api.get("/teacher/subjects");
       await setSubjects(subject.data.subjects);
+      if (props.location.state) {
+        await setSubjectSelect(props.location.state.subjectId);
+      }
     }
 
     buscaBanco();
     document.title = "Nova Questão";
-  }, []);
+  }, [props.location.state]);
 
   return (
     <Container>
@@ -49,7 +52,10 @@ export default function NovaQuestao(props) {
           </OptionDiv>
         </Option>
       </DivOptions>
-      <select onChange={e => setSubjectSelect(e.target.value)}>
+      <select
+        value={subjectSelect}
+        onChange={e => setSubjectSelect(e.target.value)}
+      >
         <option value={-1}>Selecione a disciplina</option>
         {subjects &&
           subjects.map(subject => (
@@ -62,6 +68,13 @@ export default function NovaQuestao(props) {
         <Route
           exact
           path={`${props.match.path}/`}
+          component={() => (
+            <MultiplaEscolha {...props} subjectSelect={subjectSelect} />
+          )}
+        />
+        <Route
+          exact
+          path={`${props.match.path}/:quizId`}
           component={() => (
             <MultiplaEscolha {...props} subjectSelect={subjectSelect} />
           )}
