@@ -87,7 +87,7 @@ export const OpcaoDisciplina = styled(NavLink)`
   }
 
   &[aria-current] {
-    background-color: #8ebe91;
+    background-color: #d5ece1;
     border-bottom: 3px solid #015407;
   }
 `;

@@ -4,6 +4,7 @@ export const Container = styled.div`
   height: 100vh;
   width: 100vw;
   font-family: "Rubik", sans-serif;
+  background-color: #059451;
 
   header {
     display: flex;
@@ -17,5 +18,6 @@ export const Container = styled.div`
     margin: 0 10px;
     font-weight: 600;
     text-decoration: none;
+    color: #fff;
   }
 `;

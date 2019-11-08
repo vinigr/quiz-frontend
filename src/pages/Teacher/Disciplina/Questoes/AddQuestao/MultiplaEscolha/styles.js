@@ -58,6 +58,9 @@ export const AreaPergunta = styled.textarea`
   background-color: #f8f8f8;
   padding: 5px;
   box-shadow: 0 0.01em 0 #9f9f9f;
+  font-family: "Rubik";
+  font-size: 14px;
+  border: solid 1px #e0e0e0;
 
   @media (max-width: 680px) {
     width: 90%;
@@ -124,6 +127,9 @@ export const AreaOption = styled.textarea`
   border-radius: 4px;
   background-color: #f4f4f4;
   padding: 5px;
+  font-family: "Rubik";
+  font-size: 14px;
+  border: none;
 
   & :focus {
     border: 3px solid #555;
@@ -139,6 +145,9 @@ export const AreaExplication = styled.textarea`
   box-shadow: 0 0.01em 0 #9f9f9f;
   height: 60px;
   margin-bottom: 20px;
+  font-family: "Rubik";
+  font-size: 14px;
+  border: solid 1px #e0e0e0;
 
   @media (max-width: 760px) {
     width: 66%;
