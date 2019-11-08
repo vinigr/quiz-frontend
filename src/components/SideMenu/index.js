@@ -10,7 +10,8 @@ import {
   IconSubject,
   IconQuestion,
   IconQuiz,
-  IconSettings,
+  IconDirections,
+  IconInfo,
   Linha
 } from "./styles";
 
@@ -53,10 +54,16 @@ function SideMenu(props) {
           </ItemList>
         </LinkMenu>
         <Linha />
-        <LinkMenu to={`${props.match.path}/c`}>
+        <LinkMenu to={`${props.match.path}/h`}>
           <ItemList>
-            <IconSettings />
-            Configurações
+            <IconDirections />
+            Ajuda
+          </ItemList>
+        </LinkMenu>
+        <LinkMenu to={`${props.match.path}/a`}>
+          <ItemList>
+            <IconInfo />
+            Sobre
           </ItemList>
         </LinkMenu>
       </List>

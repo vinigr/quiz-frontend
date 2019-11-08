@@ -5,6 +5,8 @@ import { Subject } from "styled-icons/material/Subject";
 import { QuestionAnswer } from "styled-icons/material/QuestionAnswer";
 import { Settings } from "styled-icons/material/Settings";
 import { QuestionCircle } from "styled-icons/fa-solid/QuestionCircle";
+import { Info } from "styled-icons/material/Info";
+import { Directions } from "styled-icons/boxicons-solid/Directions";
 
 export const DivLogo = styled.div`
   display: flex;
@@ -57,7 +59,7 @@ export const LinkMenu = styled(NavLink)`
 
   &[aria-current] {
     color: #015407;
-    background-color: #8ebe91;
+    background-color: #d5ece1;
     border-right: 3px solid #015407;
   }
 `;
@@ -96,10 +98,19 @@ export const IconSettings = styled(Settings)`
   ${colorIcon};
 `;
 
+export const IconInfo = styled(Info)`
+  ${colorIcon};
+`;
+
+export const IconDirections = styled(Directions)`
+  ${colorIcon};
+`;
+
 export const Linha = styled.hr`
   border-width: 0;
   height: 0.5px;
   border-top-width: 0.03em;
   color: #b2babb;
   width: 100%;
+  margin-bottom: 10px;
 `;
