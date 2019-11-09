@@ -36,36 +36,6 @@ export const Container = styled.div`
   }
 `;
 
-export const LinkQuiz = styled(Link)`
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  background-color: #f5f5f5;
-  border-radius: 2px;
-  align-items: center;
-  margin-bottom: 8px;
-  box-shadow: 0 0.01em 0.1em #3f3f3f;
-  text-decoration: none;
-  color: #000;
-
-  li {
-    width: 100%;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  h3:last-child {
-    font-size: 14px;
-  }
-
-  &:hover {
-    box-shadow: 0px 5px 13px 0px rgba(168, 165, 165, 0.79);
-  }
-`;
-
 export const Add = styled(Link)`
   padding: 10px;
   width: 6em;

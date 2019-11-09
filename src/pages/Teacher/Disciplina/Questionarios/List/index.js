@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import { Container, LinkQuiz, Add } from "./styles";
+import { Container, Add } from "./styles";
+
+import ItemLista from "../../../../../components/ItemListaQuiz/ItemListaQuiz";
 
 import api from "../../../../../service/api";
 
@@ -34,20 +36,7 @@ export default function List(props) {
         <ul>
           <h2>Ativos</h2>
           {quizzesAvailable.map(quiz => (
-            <LinkQuiz
-              key={quiz.id}
-              to={{
-                pathname: `${props.match.url}/q/${quiz.id}`,
-                state: {
-                  quiz
-                }
-              }}
-            >
-              <li>
-                <h3>{quiz.name}</h3>
-                <h3>{quiz.accessCode}</h3>
-              </li>
-            </LinkQuiz>
+            <ItemLista key={quiz.id} quiz={quiz} {...props} />
           ))}
         </ul>
       )}
@@ -55,19 +44,7 @@ export default function List(props) {
         <ul>
           <h2>Expirados</h2>
           {quizzesNotAvailable.map(quiz => (
-            <LinkQuiz
-              to={{
-                pathname: `${props.match.url}/q/${quiz.id}`,
-                state: {
-                  quiz
-                }
-              }}
-            >
-              <li key={quiz.id}>
-                <h3>{quiz.name}</h3>
-                <h3>{quiz.accessCode}</h3>
-              </li>
-            </LinkQuiz>
+            <ItemLista key={quiz.id} quiz={quiz} {...props} />
           ))}
         </ul>
       )}
