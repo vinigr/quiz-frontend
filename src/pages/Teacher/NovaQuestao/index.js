@@ -74,7 +74,7 @@ export default function NovaQuestao(props) {
         />
         <Route
           exact
-          path={`${props.match.path}/:quizId`}
+          path={`${props.match.path}/:questionId`}
           component={() => (
             <MultiplaEscolha {...props} subjectSelect={subjectSelect} />
           )}
@@ -82,6 +82,13 @@ export default function NovaQuestao(props) {
         <Route
           exact
           path={`${props.match.path}/tf`}
+          component={() => (
+            <TrueOrFalse {...props} subjectSelect={subjectSelect} />
+          )}
+        />
+        <Route
+          exact
+          path={`${props.match.path}/tf/:questionId`}
           component={() => (
             <TrueOrFalse {...props} subjectSelect={subjectSelect} />
           )}

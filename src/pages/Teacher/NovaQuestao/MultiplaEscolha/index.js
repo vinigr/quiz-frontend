@@ -61,6 +61,7 @@ export default function MultiplaEscolha(props) {
     if (state) {
       setQuestion(state.question);
       setImage(state.pathImage);
+
       setOptions([
         {
           option: state.options[0]
@@ -81,7 +82,7 @@ export default function MultiplaEscolha(props) {
       setAnswerCorrect(state.answer);
       setExplanation(state.explanation);
     }
-  }, [props.location]);
+  }, [image, props.location]);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
