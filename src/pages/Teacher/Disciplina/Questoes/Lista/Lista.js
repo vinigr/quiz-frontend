@@ -14,7 +14,8 @@ import {
   DivOptions,
   DivOption,
   DivAnswer,
-  Dates
+  Dates,
+  Editar
 } from "./styles";
 
 import api from "../../../../../service/api";
@@ -97,6 +98,14 @@ export default function Lista(props) {
                   </DivImage>
                 )}
                 <DivOptions>{renderOptions(question)}</DivOptions>
+                <Editar
+                  to={{
+                    pathname: `${props.match.url}/add/${question.id}`,
+                    state: question
+                  }}
+                >
+                  Editar
+                </Editar>
                 <Dates>
                   <div>
                     <span>Data de criação</span>
@@ -135,6 +144,14 @@ export default function Lista(props) {
                     <p>{question.answer ? "Verdadeiro" : "Falso"}</p>
                   </DivAnswer>
                 </DivOptions>
+                <Editar
+                  to={{
+                    pathname: `${props.match.url}/add/tf/${question.id}`,
+                    state: question
+                  }}
+                >
+                  Editar
+                </Editar>
                 <Dates>
                   <div>
                     <span>Data de criação</span>

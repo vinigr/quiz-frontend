@@ -46,7 +46,17 @@ export default function AddQuestao(props) {
         />
         <Route
           exact
+          path={`${props.match.path}/:idQuestion`}
+          component={() => <MultiplaEscolha {...props} />}
+        />
+        <Route
+          exact
           path={`${props.match.path}/tf`}
+          component={() => <TrueOrFalse {...props} />}
+        />
+        <Route
+          exact
+          path={`${props.match.path}/tf/:idQuestion`}
           component={() => <TrueOrFalse {...props} />}
         />
       </Switch>

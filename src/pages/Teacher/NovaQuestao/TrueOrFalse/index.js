@@ -197,7 +197,6 @@ export default function TrueOrFalse(props) {
           <LabelOption htmlFor="true">Verdadeiro</LabelOption>
         </DivOption>
         <DivOption>
-          {console.log(typeof answerCorrect)}
           <InputRadio
             name="option"
             id="false"

@@ -34,6 +34,18 @@ export default function TrueOrFalse(props) {
   const [error, setError] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [openError, setOpenError] = useState(false);
+  const [message, setMessage] = useState();
+
+  useEffect(() => {
+    const { state } = props.location;
+
+    if (state) {
+      setQuestion(state.question);
+      setImage(state.pathImage);
+      setAnswerCorrect(state.answer);
+      setExplanation(state.explanation);
+    }
+  }, [props.location]);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
@@ -59,6 +71,9 @@ export default function TrueOrFalse(props) {
     if (!question) return setError("Pergunta incompleta!");
     if (!answerCorrect) return setError("Opção correta não selecionada!");
 
+    if (!props.subjectSelect || props.subjectSelect === -1)
+      setError("Disciplina não selecionada!");
+
     const subjectId = props.match.params.id;
 
     const data = new FormData();
@@ -71,12 +86,14 @@ export default function TrueOrFalse(props) {
 
     try {
       await api.post("/questionTf", data);
+      setMessage("Questão cadastrada com sucesso!");
       setOpenSuccess(true);
       setQuestion("");
       setImage(null);
       setAnswerCorrect(null);
       setExplanation("");
     } catch (err) {
+      setMessage("Erro ao cadastrar questão!");
       setOpenError(true);
     }
   }
@@ -88,6 +105,46 @@ export default function TrueOrFalse(props) {
 
     setOpenSuccess(false);
     setOpenError(false);
+  }
+
+  async function editQuestion() {
+    const { state } = props.location;
+
+    if (
+      question === state.question &&
+      state.answer === answerCorrect &&
+      state.explanation === explanation &&
+      state.pathImage === image &&
+      state.subjectId === props.subjectSelect
+    ) {
+      setMessage("Você não fez alterações!");
+      return setOpenError(true);
+    }
+
+    const subjectId = props.match.params.id;
+
+    const data = new FormData();
+
+    data.append("question", question);
+    data.append("image", image);
+    data.append("answer", answerCorrect);
+    data.append("explanation", explanation);
+    data.append("subjectId", subjectId);
+
+    if (image) {
+      image.preview
+        ? data.append("image", image)
+        : data.append("pathImage", image);
+    }
+
+    try {
+      await api.put(`/questionTf/${state.id}`, data);
+      setMessage("Questão atualizada com sucesso!");
+      return setOpenSuccess(true);
+    } catch (err) {
+      setMessage("Erro ao atualizar questão!");
+      setOpenError(true);
+    }
   }
 
   return (
@@ -116,10 +173,11 @@ export default function TrueOrFalse(props) {
           <InputRadio
             name="option"
             id="true"
+            checked={answerCorrect ? JSON.parse(answerCorrect) === true : false}
             value={true}
             type="radio"
             onChange={e => {
-              setAnswerCorrect(e.target.value);
+              setAnswerCorrect(JSON.parse(e.target.value));
             }}
             hidden
           />
@@ -129,10 +187,11 @@ export default function TrueOrFalse(props) {
           <InputRadio
             name="option"
             id="false"
+            checked={answerCorrect === false}
             value={false}
             type="radio"
             onChange={e => {
-              setAnswerCorrect(e.target.value);
+              setAnswerCorrect(JSON.parse(e.target.value));
             }}
             hidden
           />
@@ -147,7 +206,15 @@ export default function TrueOrFalse(props) {
         onChange={e => setExplanation(e.target.value)}
       />
       {error && <TextError>{error}</TextError>}
-      <ButtonCreate onClick={registerQuestion}>Cadastrar questão</ButtonCreate>
+
+      {!props.location.state ? (
+        <ButtonCreate onClick={registerQuestion}>
+          Cadastrar questão
+        </ButtonCreate>
+      ) : (
+        <ButtonCreate onClick={editQuestion}>Editar questão</ButtonCreate>
+      )}
+
       <Snackbar
         anchorOrigin={{
           vertical: "bottom",
@@ -160,7 +227,7 @@ export default function TrueOrFalse(props) {
         <MySnackbarContentWrapper
           onClose={handleClose}
           variant="success"
-          message="Questão cadastrada com sucesso!"
+          message={message}
         />
       </Snackbar>
       <Snackbar
@@ -175,7 +242,7 @@ export default function TrueOrFalse(props) {
         <MySnackbarContentWrapper
           onClose={handleClose}
           variant="error"
-          message="Erro ao cadastrar questão!"
+          message={message}
         />
       </Snackbar>
     </Container>

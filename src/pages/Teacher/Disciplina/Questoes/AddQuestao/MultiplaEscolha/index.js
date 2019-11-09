@@ -54,6 +54,35 @@ export default function MultiplaEscolha(props) {
   const [error, setError] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [openError, setOpenError] = useState(false);
+  const [message, setMessage] = useState();
+
+  useEffect(() => {
+    const { state } = props.location;
+    if (state) {
+      setQuestion(state.question);
+      setImage(state.pathImage);
+
+      setOptions([
+        {
+          option: state.options[0]
+        },
+        {
+          option: state.options[1]
+        },
+        {
+          option: state.options[2] || ""
+        },
+        {
+          option: state.options[3] || ""
+        },
+        {
+          option: state.options[4] || ""
+        }
+      ]);
+      setAnswerCorrect(state.answer);
+      setExplanation(state.explanation);
+    }
+  }, [image, props.location]);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
@@ -92,6 +121,9 @@ export default function MultiplaEscolha(props) {
 
     const answer = optionsValid.indexOf(options[answerCorrect]);
 
+    if (!props.subjectSelect || props.subjectSelect === -1)
+      setError("Disciplina não selecionada!");
+
     const subjectId = props.match.params.id;
 
     const data = new FormData();
@@ -105,6 +137,7 @@ export default function MultiplaEscolha(props) {
 
     try {
       await api.post("/questionMe", data);
+      setMessage("Questão cadastrada com sucesso!");
       setOpenSuccess(true);
       setQuestion("");
       setOptions([
@@ -128,6 +161,7 @@ export default function MultiplaEscolha(props) {
       setAnswerCorrect(null);
       setExplanation("");
     } catch (err) {
+      setMessage("Erro ao cadastrar questão!");
       setOpenError(true);
     }
   }
@@ -147,6 +181,80 @@ export default function MultiplaEscolha(props) {
     setOpenError(false);
   }
 
+  async function editQuestion() {
+    const { state } = props.location;
+
+    const optionsBefore = [
+      {
+        option: state.options[0]
+      },
+      {
+        option: state.options[1]
+      },
+      {
+        option: state.options[2] || ""
+      },
+      {
+        option: state.options[3] || ""
+      },
+      {
+        option: state.options[4] || ""
+      }
+    ];
+
+    if (
+      question === state.question &&
+      JSON.stringify(options) === JSON.stringify(optionsBefore) &&
+      state.answer === answerCorrect &&
+      state.explanation === explanation &&
+      state.pathImage === image &&
+      state.subjectId === props.subjectSelect
+    ) {
+      setMessage("Você não fez alterações!");
+      return setOpenError(true);
+    }
+
+    if (!question) return setError("Pergunta incompleta!");
+    if (!answerCorrect) return setError("Opção correta não selecionada!");
+
+    const optionsValid = options.filter(option => {
+      return option.option !== "";
+    });
+
+    if (optionsValid.indexOf(options[answerCorrect]) === -1)
+      return setError("Opção marcada como correta não possui texto!");
+
+    if (optionsValid.length < 2)
+      return setError("É preciso ao menos 2 alternativas válidas");
+
+    const answer = optionsValid.indexOf(options[answerCorrect]);
+
+    const subjectId = props.match.params.id;
+
+    const data = new FormData();
+
+    data.append("question", question);
+    data.append("options", JSON.stringify(optionsValid));
+    data.append("answer", answer);
+    data.append("explanation", explanation);
+    data.append("subjectId", subjectId);
+
+    if (image) {
+      image.preview
+        ? data.append("image", image)
+        : data.append("pathImage", image);
+    }
+
+    try {
+      await api.put(`/questionMe/${state.id}`, data);
+      setMessage("Questão atualizada com sucesso!");
+      setOpenSuccess(true);
+    } catch (err) {
+      setMessage("Erro ao atualizar questão!");
+      setOpenError(true);
+    }
+  }
+
   return (
     <Container>
       <AreaPergunta
@@ -158,7 +266,7 @@ export default function MultiplaEscolha(props) {
       />
       {image ? (
         <DivImage>
-          <Image src={image.preview} />
+          <Image src={image.preview || image} />
           <IconClose onClick={() => setImage(null)} />
         </DivImage>
       ) : (
@@ -175,6 +283,7 @@ export default function MultiplaEscolha(props) {
               name="option"
               id={`option${index}`}
               value={index}
+              checked={answerCorrect == index}
               type="radio"
               onChange={e => {
                 setAnswerCorrect(e.target.value);
@@ -203,7 +312,14 @@ export default function MultiplaEscolha(props) {
         onChange={e => setExplanation(e.target.value)}
       />
       {error && <TextError>{error}</TextError>}
-      <ButtonCreate onClick={registerQuestion}>Cadastrar questão</ButtonCreate>
+      {!props.location.state ? (
+        <ButtonCreate onClick={registerQuestion}>
+          Cadastrar questão
+        </ButtonCreate>
+      ) : (
+        <ButtonCreate onClick={editQuestion}>Editar questão</ButtonCreate>
+      )}
+
       <Snackbar
         anchorOrigin={{
           vertical: "bottom",
@@ -216,7 +332,7 @@ export default function MultiplaEscolha(props) {
         <MySnackbarContentWrapper
           onClose={handleClose}
           variant="success"
-          message="Questão cadastrada com sucesso!"
+          message={message}
         />
       </Snackbar>
       <Snackbar
@@ -231,7 +347,7 @@ export default function MultiplaEscolha(props) {
         <MySnackbarContentWrapper
           onClose={handleClose}
           variant="error"
-          message="Erro ao cadastrar questão!"
+          message={message}
         />
       </Snackbar>
     </Container>
