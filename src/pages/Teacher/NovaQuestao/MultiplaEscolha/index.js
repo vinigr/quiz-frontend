@@ -50,7 +50,7 @@ export default function MultiplaEscolha(props) {
   const [image, setImage] = useState();
   const [options, setOptions] = useState(_defaultCosts);
   const [answerCorrect, setAnswerCorrect] = useState();
-  const [explanation, setExplanation] = useState();
+  const [explanation, setExplanation] = useState("");
   const [error, setError] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [openError, setOpenError] = useState(false);
@@ -318,7 +318,7 @@ export default function MultiplaEscolha(props) {
         ))}
       </DivOptions>
       <AreaExplication
-        value={explanation}
+        value={explanation || ""}
         placeholder="Explicação (opcional)"
         rows="5"
         required

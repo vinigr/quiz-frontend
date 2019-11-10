@@ -50,7 +50,7 @@ export default function MultiplaEscolha(props) {
   const [image, setImage] = useState();
   const [options, setOptions] = useState(_defaultCosts);
   const [answerCorrect, setAnswerCorrect] = useState();
-  const [explanation, setExplanation] = useState();
+  const [explanation, setExplanation] = useState("");
   const [error, setError] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [openError, setOpenError] = useState(false);
@@ -207,15 +207,15 @@ export default function MultiplaEscolha(props) {
       JSON.stringify(options) === JSON.stringify(optionsBefore) &&
       state.answer === answerCorrect &&
       state.explanation === explanation &&
-      state.pathImage === image &&
-      state.subjectId === props.subjectSelect
+      state.pathImage === image
     ) {
       setMessage("Você não fez alterações!");
       return setOpenError(true);
     }
 
     if (!question) return setError("Pergunta incompleta!");
-    if (!answerCorrect) return setError("Opção correta não selecionada!");
+    if (!answerCorrect && answerCorrect !== 0)
+      return setError("Opção correta não selecionada!");
 
     const optionsValid = options.filter(option => {
       return option.option !== "";
@@ -305,7 +305,7 @@ export default function MultiplaEscolha(props) {
         ))}
       </DivOptions>
       <AreaExplication
-        value={explanation}
+        value={explanation || ""}
         placeholder="Explicação (opcional)"
         rows="5"
         required

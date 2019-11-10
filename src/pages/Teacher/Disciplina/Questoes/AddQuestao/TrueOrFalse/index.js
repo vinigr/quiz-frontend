@@ -30,7 +30,7 @@ export default function TrueOrFalse(props) {
   const [question, setQuestion] = useState("");
   const [image, setImage] = useState();
   const [answerCorrect, setAnswerCorrect] = useState();
-  const [explanation, setExplanation] = useState();
+  const [explanation, setExplanation] = useState("");
   const [error, setError] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [openError, setOpenError] = useState(false);
@@ -199,7 +199,7 @@ export default function TrueOrFalse(props) {
         </DivOption>
       </DivOptions>
       <AreaExplication
-        value={explanation}
+        value={explanation || ""}
         placeholder="Explicação (opcional)"
         rows="5"
         required

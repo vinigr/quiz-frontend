@@ -48,7 +48,7 @@ export default function List(props) {
           ))}
         </ul>
       )}
-      <Add to={`${props.match.url}/new`}>Adicionar</Add>
+      <Add to={`${props.match.url}/q/new`}>Adicionar</Add>
     </Container>
   );
 }
