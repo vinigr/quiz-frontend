@@ -109,6 +109,14 @@ export default function MultiplaEscolha(props) {
     if (!question) return setError("Pergunta incompleta!");
     if (!answerCorrect) return setError("Opção correta não selecionada!");
 
+    if (options[0].option.trim() === "") {
+      return setError("Opção 1 sem texto!");
+    }
+
+    if (options[1].option.trim() === "") {
+      return setError("Opção 2 sem texto!");
+    }
+
     const optionsValid = options.filter(option => {
       return option.option !== "";
     });
@@ -221,6 +229,14 @@ export default function MultiplaEscolha(props) {
 
     if (!question) return setError("Pergunta incompleta!");
     if (!answerCorrect) return setError("Opção correta não selecionada!");
+
+    if (options[0].option.trim() === "") {
+      return setError("Opção 1 sem texto!");
+    }
+
+    if (options[1].option.trim() === "") {
+      return setError("Opção 2 sem texto!");
+    }
 
     const optionsValid = options.filter(option => {
       return option.option !== "";
