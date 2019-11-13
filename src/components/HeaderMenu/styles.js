@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Notifications } from "styled-icons/material/Notifications";
 import { Menu } from "styled-icons/material/Menu";
 import { ExitToApp } from "styled-icons/material/ExitToApp";
@@ -115,4 +115,9 @@ export const IconsFinal = styled.div`
 
 export const BadgeIcon = styled(Badge)`
   margin-right: 10px;
+`;
+
+export const LinkPerfil = styled(Link)`
+  color: #000;
+  text-decoration: none;
 `;

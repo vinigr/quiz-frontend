@@ -7,7 +7,8 @@ import {
   IconMenu,
   AppLogo,
   OpcaoDisciplina,
-  NomeOpcao
+  NomeOpcao,
+  LinkPerfil
 } from "./styles";
 
 import SideMenu from "../SideMenu";
@@ -125,7 +126,9 @@ export default function HeaderMenu(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Perfil</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <LinkPerfil to="/t/p">Perfil</LinkPerfil>
+        </MenuItem>
         <MenuItem onClick={() => AuthService.logout(props)}>Sair</MenuItem>
       </Menu>
     </Header>
