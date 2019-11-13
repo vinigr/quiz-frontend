@@ -1,14 +1,19 @@
 import React from "react";
 
-// import { Container } from './styles';
+import { Container } from "./styles";
 
 export default function Sobre() {
   return (
-    <div>
+    <Container>
+      <h2>Sobre</h2>
       <p>
-        Plataforma desenvolvida na disciplina de "TID - Trabalho
-        Interdisciplinar Dirigido" pelos alunos.
+        Esta é uma plataforma desenvolvida na disciplina de "TID - Trabalho
+        Interdisciplinar Dirigido" do curso de Sistemas de Informação da UniFTC
+        - Vitoria da Conquista pelos alunos João Pedro Oliveira Eloy, Marllus
+        Pereira Santos, Stefany Novaes Amorim e Vinícios Oliveira Grama, com o
+        objetivo de fornecer uma nova ferramenta aos professores no uso da
+        gamificação.
       </p>
-    </div>
+    </Container>
   );
 }
