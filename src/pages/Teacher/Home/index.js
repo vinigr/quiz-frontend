@@ -1,17 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  LineChart,
-  Line,
-  PieChart,
-  Pie,
-  Cell
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
 import api from "../../../service/api";
 import { Container } from "./styles";
@@ -21,6 +9,7 @@ export default function Home(props) {
 
   useEffect(() => {
     const fetchData = async () => {
+      document.title = "Quest On";
       const { data } = await api.get(`/teacher/statistics`);
 
       const listTops = data.tops.map(user => {
