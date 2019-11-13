@@ -130,7 +130,7 @@ export default function MultiplaEscolha(props) {
     const answer = optionsValid.indexOf(options[answerCorrect]);
 
     if (!props.subjectSelect || props.subjectSelect === -1)
-      setError("Disciplina não selecionada!");
+      return setError("Disciplina não selecionada!");
 
     const subjectId =
       props.subjectSelect &&

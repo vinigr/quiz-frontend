@@ -72,7 +72,7 @@ export default function TrueOrFalse(props) {
     if (!answerCorrect) return setError("Opção correta não selecionada!");
 
     if (!props.subjectSelect || props.subjectSelect === -1)
-      setError("Disciplina não selecionada!");
+      return setError("Disciplina não selecionada!");
 
     const subjectId =
       props.subjectSelect &&

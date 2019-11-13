@@ -31,7 +31,7 @@ export default function AddQuestao(props) {
             <IconListNumbered />
           </OptionDiv>
         </Option>
-        <Option exact to={`${props.match.url}/tf`}>
+        <Option exact to={`${props.match.url}/tf/new`}>
           <OptionDiv>
             <OptionText>Verdadeiro ou falso</OptionText>
             <ImgTrueFalse src={trueOrFalse} />
@@ -51,7 +51,7 @@ export default function AddQuestao(props) {
         />
         <Route
           exact
-          path={`${props.match.path}/tf`}
+          path={`${props.match.path}/tf/new`}
           component={() => <TrueOrFalse {...props} />}
         />
         <Route

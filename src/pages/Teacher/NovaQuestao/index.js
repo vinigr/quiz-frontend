@@ -45,7 +45,7 @@ export default function NovaQuestao(props) {
             <IconListNumbered />
           </OptionDiv>
         </Option>
-        <Option to={`${props.match.path}/tf`}>
+        <Option to={`${props.match.path}/tf/new`}>
           <OptionDiv>
             <OptionText>Verdadeiro ou falso</OptionText>
             <ImgTrueFalse src={trueOrFalse} />
@@ -81,7 +81,7 @@ export default function NovaQuestao(props) {
         />
         <Route
           exact
-          path={`${props.match.path}/tf`}
+          path={`${props.match.path}/tf/new`}
           component={() => (
             <TrueOrFalse {...props} subjectSelect={subjectSelect} />
           )}
