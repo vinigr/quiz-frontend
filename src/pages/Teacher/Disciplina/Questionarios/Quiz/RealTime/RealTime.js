@@ -13,7 +13,7 @@ const RealTime = props => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const quizId = props.match.params.id;
+        const { quizId } = props.match.params;
         const { data } = await api.get(`/infoQuiz/${quizId}`);
         setQuiz(data.quiz.name);
         setQuestions(data.questions);
