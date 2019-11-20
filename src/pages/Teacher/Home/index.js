@@ -4,6 +4,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import api from "../../../service/api";
 import { Container } from "./styles";
 
+import noDataImg from "../../../assets/img/no_data.svg";
+
 export default function Home(props) {
   const [tops, setTops] = useState([]);
 
@@ -43,33 +45,33 @@ export default function Home(props) {
   }, [props.match.params]);
   return (
     <Container>
-      <div className="graphics">
-        {tops.length > 0 ? (
-          <>
-            <h2>Melhores pontuadores</h2>
-
-            <BarChart
-              width={500}
-              height={300}
-              data={tops}
-              margin={{
-                top: 5,
-                right: 10,
-                left: 10,
-                bottom: 5
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="Pontuacão" fill="#8FC52E" />
-            </BarChart>
-          </>
-        ) : (
+      {tops.length > 0 ? (
+        <div className="graphics">
+          <h2>Melhores pontuadores</h2>
+          <BarChart
+            width={500}
+            height={300}
+            data={tops}
+            margin={{
+              top: 5,
+              right: 10,
+              left: 10,
+              bottom: 5
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="Pontuacão" fill="#8FC52E" />
+          </BarChart>
+        </div>
+      ) : (
+        <div id="notData">
           <h2>Ainda sem estatísticas</h2>
-        )}
-      </div>
+          <img src={noDataImg} alt="no data"></img>
+        </div>
+      )}
     </Container>
   );
 }

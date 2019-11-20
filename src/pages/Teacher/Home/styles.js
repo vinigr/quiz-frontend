@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
+  width: calc(100% - 40px);
 
   .graphics {
     display: flex;
@@ -15,6 +16,19 @@ export const Container = styled.div`
     h2 {
       font-size: 14px;
       margin-bottom: 10px;
+    }
+  }
+
+  #notData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+
+    img {
+      margin-top: 20px;
+      width: 400px;
     }
   }
 `;
