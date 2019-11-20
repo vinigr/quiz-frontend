@@ -10,7 +10,7 @@ export default function RankingQuiz(props) {
   const [disputes, setDisputes] = useState([]);
   const [nameVisible, setNameVisible] = useState(false);
 
-  const quizId = props.match.params.id;
+  const { quizId } = props.match.params;
   useEffect(() => {
     async function fetchData() {
       try {
