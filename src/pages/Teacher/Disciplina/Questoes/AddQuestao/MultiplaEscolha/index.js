@@ -129,9 +129,6 @@ export default function MultiplaEscolha(props) {
 
     const answer = optionsValid.indexOf(options[answerCorrect]);
 
-    if (!props.subjectSelect || props.subjectSelect === -1)
-      return setError("Disciplina não selecionada!");
-
     const subjectId = props.match.params.id;
 
     const data = new FormData();
