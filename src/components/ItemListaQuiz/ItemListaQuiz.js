@@ -20,7 +20,7 @@ const ItemListaQuiz = props => {
     <Item>
       <LinkQuiz
         to={{
-          pathname: `${props.match.url}/${props.quiz.id}`,
+          pathname: `${props.match.url}/n/${props.quiz.id}`,
           state: {
             quiz: props.quiz
           }

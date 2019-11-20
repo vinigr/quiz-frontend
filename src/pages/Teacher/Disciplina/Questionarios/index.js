@@ -9,8 +9,8 @@ export default function Questionarios(props) {
   return (
     <Switch>
       <Route exact path={`${props.match.path}/`} component={List} />
-      <Route path={`${props.match.path}/:quizId`} component={Quiz} />
-      <Route path={`${props.match.path}/q/new`} component={NewQuiz} />
+      <Route path={`${props.match.path}/n/:quizId`} component={Quiz} />
+      <Route exact path={`${props.match.path}/q/new`} component={NewQuiz} />
     </Switch>
   );
 }
