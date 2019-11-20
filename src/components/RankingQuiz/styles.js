@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 90%;
   min-height: 80px;
-  background-color: #7a7a7a;
+  background-color: #d9d8d8;
   border-radius: 4px;
   padding: 10px 30px;
   margin-bottom: 20px;
@@ -11,9 +11,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   font-family: "Rubik", sans-serif;
+  border: 2px solid #02630c;
 
   h3 {
-    color: #fff;
+    color: #000;
   }
 
   section {
@@ -28,7 +29,7 @@ export const Container = styled.div`
     margin-bottom: 20px;
 
     h4 {
-      color: #fff;
+      color: #000;
       font-family: "Rubik", sans-serif;
       margin-bottom: 4px;
     }

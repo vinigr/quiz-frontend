@@ -8,6 +8,7 @@ export const Container = styled.div`
 
   h2 {
     font-family: "Rubik";
+    margin-bottom: 10px;
   }
 
   button#real-time {
