@@ -40,6 +40,5 @@ export const LinkQuiz = styled(Link)`
 
   #name {
     width: 100%;
-    height: 100%;
   }
 `;
