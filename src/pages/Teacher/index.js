@@ -29,7 +29,7 @@ export default function Teacher(props) {
             path={`${props.match.path}/q`}
             component={Questionarios}
           />
-          <Route path={`${props.match.path}/q/n/:id`} component={Quiz} />
+          <Route path={`${props.match.path}/q/n/:quizId`} component={Quiz} />
           <Route path={`${props.match.path}/h`} component={Ajuda} />
           <Route path={`${props.match.path}/a`} component={Sobre} />
           <Route path={`${props.match.path}/p`} component={Perfil} />

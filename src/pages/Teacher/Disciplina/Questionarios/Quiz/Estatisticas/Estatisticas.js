@@ -78,7 +78,7 @@ export default function Estatisticas(props) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const quizId = props.match.params.id;
+        const { quizId } = props.match.params;
         const { data } = await api.get(`/statusQuiz/${quizId}`);
         setQuestions(data.questions);
         setQuestionsAnswered(data.questionsAnswered);
@@ -89,7 +89,7 @@ export default function Estatisticas(props) {
     }
 
     fetchData();
-  }, [props.match.params]);
+  }, [props.match.param, props.match.params]);
 
   function renderOptions(question, questionId) {
     const arrayOptions = [];
