@@ -69,7 +69,8 @@ export default function TrueOrFalse(props) {
     setError(null);
 
     if (!question) return setError("Pergunta incompleta!");
-    if (!answerCorrect) return setError("Opção correta não selecionada!");
+    if (answerCorrect !== true && answerCorrect !== false)
+      return setError("Opção correta não selecionada!");
 
     const subjectId = props.match.params.id;
 
