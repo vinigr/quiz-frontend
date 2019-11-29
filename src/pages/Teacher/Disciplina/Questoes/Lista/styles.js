@@ -21,7 +21,7 @@ export const DivOption = styled.div`
   margin: 10px 0;
   border-radius: 4px;
   background-color: ${props =>
-    props.answer === props.position ? "#37996b" : "#DDDDDD"};
+    props.answer === props.position ? "#8CD5B3" : "#DDDDDD"};
 
   p {
     font-weight: 400;
@@ -32,7 +32,7 @@ export const DivAnswer = styled.div`
   padding: 10px;
   margin: 10px 0;
   border-radius: 4px;
-  background-color: ${props => (props.answer ? "#37996b" : "#CF4848")};
+  background-color: ${props => (props.answer ? "#8CD5B3" : "#CF4848")};
   width: 100px;
   display: flex;
   justify-content: center;

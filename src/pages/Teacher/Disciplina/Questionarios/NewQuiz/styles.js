@@ -133,7 +133,7 @@ export const DivOption = styled.div`
   margin: 10px 0;
   border-radius: 4px;
   background-color: ${props =>
-    props.answer === props.position ? "#37996b" : "#DDDDDD"};
+    props.answer === props.position ? "#8CD5B3" : "#DDDDDD"};
 
   div {
     display: flex;
