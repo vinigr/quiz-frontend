@@ -239,7 +239,7 @@ export const BotaoEntrar = styled.button`
   padding: 4px 6px;
   width: 30%;
   color: #f1f1f1;
-  font-size: 24px;
+  font-size: 18px;
   font-family: "Open Sans", sans-serif;
   cursor: pointer;
 

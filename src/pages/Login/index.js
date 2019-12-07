@@ -101,7 +101,7 @@ export default function Login(props) {
                 type={secureText ? "password" : "text"}
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                placeholder="Password"
+                placeholder="Senha"
               />
               {secureText ? (
                 <IconEyeClosed onClick={() => setSecureText(false)} />
