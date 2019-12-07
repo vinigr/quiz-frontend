@@ -27,7 +27,7 @@ export const Container = styled.section`
 
   a#button {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     border-radius: 20px;
     padding: 18px;
     color: #000;

@@ -160,7 +160,7 @@ export const AreaExplication = styled.textarea`
 
 export const TextError = styled.h4`
   font-family: "Open Sans", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   text-align: center;
   color: #d41919;

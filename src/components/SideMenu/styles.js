@@ -46,7 +46,7 @@ export const LinkMenu = styled(NavLink)`
   color: #000;
   text-decoration: none;
   font-family: "Rubik", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   display: flex;
   align-items: center;
   padding: 4px 10px 4px 24px;

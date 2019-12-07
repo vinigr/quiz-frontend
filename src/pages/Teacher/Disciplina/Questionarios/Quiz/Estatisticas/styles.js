@@ -21,7 +21,7 @@ export const Container = styled.div`
 
     h3 {
       font-size: 18px;
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 16px;
     }
   }
@@ -42,7 +42,7 @@ export const Container = styled.div`
 
     h5 {
       font-family: "Open Sans", sans-serif;
-      font-weight: 500;
+      font-weight: 600;
       margin-top: 10px;
       font-size: 16px;
     }

@@ -12,7 +12,7 @@ export const Container = styled.div`
   }
 
   h4 {
-    font-weight: 500;
+    font-weight: 600;
   }
 
   h5 {

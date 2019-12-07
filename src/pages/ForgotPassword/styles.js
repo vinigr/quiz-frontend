@@ -95,7 +95,7 @@ export const BotaoRecuperar = styled.button`
   font-size: 20px;
   font-family: "Open Sans", sans-serif;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
 
   &:hover {
     opacity: 0.8;
@@ -103,7 +103,7 @@ export const BotaoRecuperar = styled.button`
 `;
 
 export const TextSuccess = styled.h4`
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   text-align: center;
   color: #4bb543;

@@ -19,7 +19,7 @@ export const ListaDisciplinas = styled.ul`
 export const TitleForm = styled.h2`
   font-family: "Open Sans", sans-serif;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 1px;
 `;
 
@@ -32,7 +32,7 @@ export const Label = styled.label`
   margin-bottom: 0.5em;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 export const Input = styled.input`

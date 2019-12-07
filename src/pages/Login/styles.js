@@ -42,7 +42,7 @@ export const AppLogo = styled.img`
 
 export const NomeSite = styled.h1`
   font-family: "Open Sans", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
   font-size: 20px;
 `;
@@ -216,7 +216,7 @@ export const IconEyeClosed = styled(EyeClosed)`
 `;
 
 export const TextError = styled.h4`
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   text-align: center;
   color: #d41919;
@@ -283,7 +283,7 @@ export const TitleInfo = styled.h2`
 `;
 
 export const TextInfo = styled.h3`
-  font-weight: 500;
+  font-weight: 600;
   font-size: 24px;
   text-align: center;
   margin-bottom: 10px;
@@ -291,7 +291,7 @@ export const TextInfo = styled.h3`
 
 export const LinkCadastro = styled(Link)`
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 30px;
   padding: 18px;
   color: #fff;

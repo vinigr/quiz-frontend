@@ -18,7 +18,7 @@ export const LabelOption = styled.label`
   cursor: pointer;
   background-color: #cdcdcd;
   height: 40px;
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 export const DivOptions = styled.div`

@@ -18,7 +18,7 @@ export const InputUser = styled.input``;
 export const LabelUser = styled.label`
   padding: 12px;
   border-radius: 5px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
 `;
 
