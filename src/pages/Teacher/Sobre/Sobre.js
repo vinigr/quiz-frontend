@@ -11,8 +11,8 @@ export default function Sobre() {
         Interdisciplinar Dirigido" do curso de Sistemas de Informação da UniFTC
         - Vitoria da Conquista pelos alunos João Pedro Oliveira Eloy, Marllus
         Pereira Santos, Stefany Novaes Amorim e Vinícios Oliveira Grama, com o
-        objetivo de fornecer uma nova ferramenta aos professores no uso da
-        gamificação.
+        objetivo de fornecer uma aplicação de questionários com técnicas de
+        gamificação aplicadas.
       </p>
     </Container>
   );
