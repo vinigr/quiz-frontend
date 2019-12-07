@@ -12,7 +12,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;
-    font-family: "Rubik";
+    font-family: "Open Sans";
   }
 `;
 

@@ -17,7 +17,7 @@ export const ListaDisciplinas = styled.ul`
 `;
 
 export const TitleForm = styled.h2`
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 24px;
   font-weight: 500;
   margin-top: 1px;
@@ -30,7 +30,7 @@ export const Form = styled.form`
 
 export const Label = styled.label`
   margin-bottom: 0.5em;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
 `;

@@ -4,7 +4,7 @@ import { KeyboardArrowDown } from "styled-icons/material/KeyboardArrowDown";
 
 export const Title = styled.h2`
   font-size: 30px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin-top: 5px;
 `;
 

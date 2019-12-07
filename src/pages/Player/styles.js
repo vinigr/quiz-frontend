@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
 
   h2 {
     font-size: 18px;

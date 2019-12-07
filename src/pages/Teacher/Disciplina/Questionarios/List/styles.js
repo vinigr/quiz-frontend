@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   h2 {
     font-size: 16px;
     margin-bottom: 6px;
@@ -42,7 +42,7 @@ export const Add = styled(Link)`
   text-decoration: none;
   color: #fff;
   text-align: center;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   background-color: #5f5f5f;
   border-radius: 4px;
   margin-top: 10px;

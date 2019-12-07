@@ -93,7 +93,7 @@ export const BotaoRecuperar = styled.button`
   width: 30%;
   color: #f1f1f1;
   font-size: 20px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   cursor: pointer;
   font-weight: 500;
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   min-height: 100vh;
   width: 100vw;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   background-color: #059451;
 
   header {

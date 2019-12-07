@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;

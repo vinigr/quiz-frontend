@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   font-size: 26px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
 `;
 
 export const DivOptions = styled.div`
@@ -66,7 +66,7 @@ export const OptionDiv = styled.div`
 `;
 
 export const OptionText = styled.h3`
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   color: #343434;
   font-size: 16px;

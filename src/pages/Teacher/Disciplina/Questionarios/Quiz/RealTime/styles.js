@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 100%;
 
   h2 {
-    font-family: "Rubik";
+    font-family: "Open Sans";
     margin-bottom: 10px;
   }
 

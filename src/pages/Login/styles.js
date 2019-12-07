@@ -13,7 +13,7 @@ import { device } from "../../utils/devices";
 export const Container = styled.div`
   width: 100vw;
   height: 100%;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
 `;
 
 export const Header = styled.header`
@@ -41,7 +41,7 @@ export const AppLogo = styled.img`
 `;
 
 export const NomeSite = styled.h1`
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
   margin: 0;
   font-size: 20px;
@@ -240,7 +240,7 @@ export const BotaoEntrar = styled.button`
   width: 30%;
   color: #f1f1f1;
   font-size: 24px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   cursor: pointer;
 
   &:hover {

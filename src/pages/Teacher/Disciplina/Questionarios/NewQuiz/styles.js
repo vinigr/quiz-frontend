@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
 
   h2 {
     font-size: 24px;
@@ -141,7 +141,7 @@ export const DivOption = styled.div`
     align-items: flex-end;
 
     h4 {
-      font-family: "Rubik";
+      font-family: "Open Sans";
       font-weight: 500;
     }
   }

@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 80%;
   align-items: center;
   margin-top: 50px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
 `;
 
 export const LabelOption = styled.label`

@@ -9,7 +9,7 @@ export const Container = styled.div`
   width: 80%;
   align-items: center;
   margin-top: 50px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
 `;
 
 export const DivUpload = styled.div`
@@ -58,7 +58,7 @@ export const AreaPergunta = styled.textarea`
   background-color: #f8f8f8;
   padding: 5px;
   box-shadow: 0 0.01em 0 #9f9f9f;
-  font-family: "Rubik";
+  font-family: "Open Sans";
   font-size: 14px;
   border: solid 1px #e0e0e0;
 
@@ -127,7 +127,7 @@ export const AreaOption = styled.textarea`
   border-radius: 4px;
   background-color: #f4f4f4;
   padding: 5px;
-  font-family: "Rubik";
+  font-family: "Open Sans";
   font-size: 14px;
   border: none;
 
@@ -145,7 +145,7 @@ export const AreaExplication = styled.textarea`
   box-shadow: 0 0.01em 0 #9f9f9f;
   height: 60px;
   margin-bottom: 20px;
-  font-family: "Rubik";
+  font-family: "Open Sans";
   font-size: 14px;
   border: solid 1px #e0e0e0;
 
@@ -159,7 +159,7 @@ export const AreaExplication = styled.textarea`
 `;
 
 export const TextError = styled.h4`
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 16px;
   text-align: center;
@@ -171,6 +171,6 @@ export const ButtonCreate = styled.button`
   padding: 10px;
   border-radius: 4px;
   border: none;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   cursor: pointer;
 `;

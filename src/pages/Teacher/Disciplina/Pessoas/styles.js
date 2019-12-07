@@ -33,7 +33,7 @@ export const ListPessoas = styled.ul`
 `;
 
 export const Title = styled.h2`
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 24px;
   margin: 0 0 16px;

@@ -6,13 +6,13 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
 
   nav {
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;
-    font-family: "Rubik";
+    font-family: "Open Sans";
   }
 `;
 

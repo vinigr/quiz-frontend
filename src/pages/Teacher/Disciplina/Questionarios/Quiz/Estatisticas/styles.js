@@ -12,7 +12,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "Rubik", sans-serif;
+    font-family: "Open Sans", sans-serif;
 
     h2 {
       font-size: 22px;
@@ -41,7 +41,7 @@ export const Container = styled.div`
     width: 80vw;
 
     h5 {
-      font-family: "Rubik", sans-serif;
+      font-family: "Open Sans", sans-serif;
       font-weight: 500;
       margin-top: 10px;
       font-size: 16px;

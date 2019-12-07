@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  font-family: "Rubik", sans-serif;
+  font-family: "Open Sans", sans-serif;
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
